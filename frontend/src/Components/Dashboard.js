@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import Navbar from './Navbar';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
@@ -11,7 +10,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         refreshToken();
-        getUser();
+        // getUser();
     }, [])
 
     const refreshToken = async() => {
@@ -57,7 +56,6 @@ const Dashboard = () => {
 
     return (
         <div>
-            <Navbar/>
             <div className="container mt-5">
                 <h1>Haloo {nama}</h1>
                 <button className='button is-info' onClick={getUser}>Get User</button>
