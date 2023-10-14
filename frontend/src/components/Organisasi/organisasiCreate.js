@@ -53,7 +53,7 @@ const OrganisasiCreate = () => {
           <div className="bg-base-200 h-auto box-border p-4">
             <div className="flex justify-center items-center mt-5">
               <h1>
-                <b>Tambah Portofolio</b>
+                <b>Tambah Organisasi</b>
               </h1>
             </div>
       <div className="flex justify-center items-center p-2 mt-5">
