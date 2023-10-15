@@ -4,6 +4,10 @@ import 'react-modal-video/css/modal-video.min.css';
 import '../../styles/style.css';
 import '../../styles/bootstrap.min.css'
 import '../../styles/responsive.css';
+import '../../styles/icofont.min.css';
+import '../../styles/pe-icon-7-stroke.css';
+import '../../styles/rtl.css.map';
+import 'animate.css';
 
 class About extends Component {
     state = {

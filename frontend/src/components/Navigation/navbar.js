@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import '../../styles/style.css';
-import '../../styles/bootstrap.min.css'
+import '../../styles/bootstrap.min.css';
 import '../../styles/responsive.css';
+import '../../styles/rtl.css.map';
+import 'animate.css';
 
 class Navbar extends Component {
     // Navbar 
@@ -65,173 +67,31 @@ class Navbar extends Component {
                         <div className={classOne} id="navbarSupportedContent">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a className="nav-link" onClick={e => e.preventDefault()}>
-                                        Home <i className="icofont-thin-down"></i>
-                                    </a>
-
-                                    <ul className="dropdown-menu mega-dropdown-menu">
-                                        <li className="nav-item">
-                                            <a className="nav-link">Default Home</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Creative Agency</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">IT Agency</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Marketing Agency</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Portfolio Agency</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Studio Agency</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Business Agency</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Startup Agency</a>
-                                        </li>
-                                    </ul>
+                                    <a href="/about" className="nav-link">Home</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link" onClick={e => e.preventDefault()}>
-                                        Services <i className="icofont-thin-down"></i>
-                                    </a>
-
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <a className="nav-link">Services Style 1</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Services Style 2</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Services Style 3</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Services Style 4</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a className="nav-link">Service Details</a>
-                                        </li>
-                                    </ul>
+                                    <a href="/about" className="nav-link">About Website</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a href="/about" className="nav-link">About us</a>
+                                    <a href="/about" className="nav-link">Work Process</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link" onClick={e => e.preventDefault()}>
-                                        Portfolio <i className="icofont-thin-down"></i>
-                                    </a>
-
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <a href="/portfolio" className="nav-link">Portfolio</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/portfolio-details" className="nav-link">Portfolio Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li className="nav-item">
-                                    <a className="nav-link" onClick={e => e.preventDefault()}>
-                                        Pages <i className="icofont-thin-down"></i>
-                                    </a>
-
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <a href="/about" className="nav-link">About</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/services" className="nav-link">Services</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/service-details" className="nav-link">Services Details</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/portfolio" className="nav-link">Portfolio</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/portfolio-details" className="nav-link">Portfolio Details</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/team" className="nav-link">Team</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/pricing" className="nav-link">Pricing</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/faq" className="nav-link">FAQ</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/404" className="nav-link">404 error</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/contact" className="nav-link">Contact</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li className="nav-item">
-                                    <a className="nav-link" onClick={e => e.preventDefault()}>
-                                        Blog <i className="icofont-thin-down"></i>
-                                    </a>
-
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <a href="/blog" className="nav-link">Blog Grid</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/blog2" className="nav-link">Blog Right Sidebar</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/blog3" className="nav-link">Blog Left Sidebar</a>
-                                        </li>
-
-                                        <li className="nav-item">
-                                            <a href="/blog-details" className="nav-link">Blog Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li className="nav-item">
-                                <a href="/contact" className="nav-link">Contact Us</a>
+                                    <a href="/about" className="nav-link">Team</a>
                                 </li>
                             </ul>
 
                             <div className="others-options">
                                 <a href="/pricing" className="btn btn-primary">
-                                    Let's Begin
+                                    Login
+                                </a>
+                            </div>
+
+                            <div className="others-options">
+                                <a href="/pricing" className="btn btn-primary">
+                                    Sign Up
                                 </a>
                             </div>
                         </div>
@@ -243,4 +103,3 @@ class Navbar extends Component {
 }
 
 export default Navbar;
-

@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import OwlCarousel from 'react-owl-carousel3';
+import '../../styles/style.css';
+import '../../styles/bootstrap.min.css'
+import '../../styles/responsive.css';
+import '../../styles/icofont.min.css';
+import '../../styles/pe-icon-7-stroke.css';
+import '../../styles/rtl.css.map';
+import 'animate.css';
 
 const options = {
   loop: true,

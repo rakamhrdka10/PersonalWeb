@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../../styles/style.css';
 import '../../styles/bootstrap.min.css'
 import '../../styles/responsive.css';
+import '../../styles/rtl.css.map';
+import 'animate.css';
 
 class Footer extends Component {
     render() {

@@ -22,23 +22,9 @@ const LandingPage = () => {
 
           <Services />
 
-          <About />
-
-          <OurWorks />
-
           <WorkProcess />
 
-          <Feedback />
-
           <Team />
-
-          <FunFacts />
-
-          <LatestNewsSlider />
-
-          <CtaArea />
-
-          <Partner />
                 
           <Footer />
       </>

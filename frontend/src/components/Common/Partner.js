@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import '../../styles/style.css';
+import '../../styles/bootstrap.min.css'
+import '../../styles/responsive.css';
+import '../../styles/icofont.min.css';
+import '../../styles/pe-icon-7-stroke.css';
+import '../../styles/rtl.css.map';
+import 'animate.css';
 
 class Partner extends Component {
     render() {
