@@ -3,13 +3,19 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaBars } from 'react-icons/fa';
 import Sidebar from "../Navigation/sidebar";
+import Navbar2 from "../Navigation/navbar2";
 
 const SkillList = () => {
+  const navigate = useNavigate(); 
+  const token = localStorage.getItem('access_token');
+
+  if (!token){
+    navigate('/login')
+  }
+
   const { id_person } = useParams();
   const [skills, setSkills] = useState([]);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     getSkill();
@@ -47,27 +53,33 @@ const SkillList = () => {
     }
   }
 
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
   return(
     <div>
-      <div className={`bg-gray-100 ${isSidebarVisible ? '' : 'h-screen'} flex`}>
+      <Navbar2 toggleSidebar={toggleSidebar}/>
+      <div className={`bg-gray-200 ${isSidebarVisible ? '' : 'h-screen'} flex`}>
         {isSidebarVisible && <Sidebar />}
         {/* Main Content */}
         <main className={`flex-1 p-4 ${isSidebarVisible ? '' : ''}`}>
-          {/* Tombol hamburger untuk menampilkan/sembunyikan sidebar */}
-          <button
+        <button
             className="p-2 bg-blue-500 text-white rounded-md mb-4"
             onClick={() => setIsSidebarVisible(!isSidebarVisible)}
+            style={{ backgroundColor: '#4D4C7D' }}
           >
-            <FaBars size={24} /> {/* Ikon hamburger */}
-          </button>
-          <div className="bg-base-200 h-auto box-border p-4">
+            <FaBars size={24} />
+        </button>
+          {/* Tombol hamburger untuk menampilkan/sembunyikan sidebar */}
+          <div className="bg-gray-200 h-screen box-border p-4 pt-0">
             <div className="flex justify-center items-center">
               <h1>
                 <b>Skill</b>
               </h1>
             </div>
-            <div className="flex justify-center items-center p-2 mt-5">
-              <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-8/12 h-auto">
+            <div className="flex justify-center items-center p-2">
+              <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-10/12 h-auto">
                 <div className="flex justify-end items-center p-2 mb-4">
                   <button onClick={redirectToAddSkill} className="btn btn-success">
                     Tambah Skill
@@ -88,13 +100,13 @@ const SkillList = () => {
                         <td className="border px-4 py-2">{skill.capability}%</td>
                         <td className="border px-4 py-2 text-center">
                           <button
-                            className="btn btn-sm btn-primary ml-3"
+                            className="btn btn-sm btn-success ml-3"
                             onClick={() => redirectToEditSkill(skill.id_skill)}
                           >
                             Edit
                           </button>
                           <button
-                            className="btn btn-sm btn-error ml-3"
+                            className="btn btn-sm btn-danger ml-3"
                             onClick={() => deleteSkillHandler(skill.id_skill)}
                           >
                             Delete

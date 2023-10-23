@@ -1,81 +1,89 @@
 import React, { Component } from 'react';
-import ModalVideo from 'react-modal-video';
-import 'react-modal-video/css/modal-video.min.css';
-import '../../styles/style.css';
-import '../../styles/bootstrap.min.css'
+import '../../styles/styles.css';
+import '../LandingPage/styles/bootstrap.min.css'
 import '../../styles/responsive.css';
 import '../../styles/icofont.min.css';
 import '../../styles/pe-icon-7-stroke.css';
 import '../../styles/rtl.css.map';
 import 'animate.css';
 
-class About extends Component {
-    state = {
-        isOpen: false,
-    }
-
-    openModal = () => {
-        this.setState({ isOpen: true });
-    }
-
+class Services extends Component {
     render() {
         return (
-            <>
-                <section className="about-area ptb-100">
-                    <div className="container">
-                        <div className="row align-items-center">
-                            <div className="col-lg-5 col-md-12">
-                                <div className="about-image">
-                                    <img src="/images/about-img1.jpg" alt="image" className="rounded-10" />
+            <div className="bg-fcfbfb ptb-100 pb-60">
+                <div className="container">
+                    <div className="section-title">
+                        <h2>About Website</h2>
+                        <p>Personal Web CV Maker adalah platform inovatif yang dirancang khusus untuk membantu individu dalam proses pembuatan Curriculum Vitae (CV) 
+                            atau resume pribadi mereka. Dengan Personal Web CV Maker, Anda dapat dengan mudah dan cepat membuat CV yang menonjol dan profesional yang 
+                            akan membantu Anda mencapai tujuan karir Anda.</p>
+                    </div>
 
-                                    <div className="video-box">
-                                        <div
-                                            onClick={this.openModal}
-                                            className="video-btn"
-                                        >
-                                            <i className="pe-7s-play"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div className="row justify-content-center">
+                        <div className="col-lg-4 col-sm-6">
+                            <div className="service-card-one">
+                                <i className="pe-7s-comment bg-13c4a1"></i>
+                                <h3>
+                                    <a href="/">Pembuatan CV yang Mudah</a>
+                                </h3>
+                                <p>Platform ini menawarkan alat pembuatan CV yang intuitif dan mudah digunakan, sehingga Anda dapat membuat CV profesional tanpa kesulitan.</p>
                             </div>
+                        </div>
 
-                            <div className="col-lg-7 col-md-12">
-                                <div className="about-content about-content-two">
-                                    <div className="section-title">
-                                        <h2>About Us</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis eget ante, sed viverra nunc tincidunt nec eleifend et tincidunt.</p>
-                                    </div>
+                        <div className="col-lg-4 col-sm-6">
+                            <div className="service-card-one">
+                                <i className="pe-7s-display2 bg-6610f2"></i>
+                                <h3>
+                                    <a href="/service-details">Isi Konten yang Disesuaikan</a>
+                                </h3>
+                                <p>Anda dapat mengisi konten CV Anda dengan pengalaman, pendidikan, keterampilan, dan informasi pribadi. Semua elemen dapat disesuaikan sesuai kebutuhan Anda.</p>
+                            </div>
+                        </div>
 
-                                    <div className="about-text">
-                                        <h4>Who We Are</h4>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                                    </div>
+                        <div className="col-lg-4 col-sm-6">
+                            <div className="service-card-one">
+                                <i className="pe-7s-light bg-ffb700"></i>
+                                <h3>
+                                    <a href="/service-details">Desain CV</a>
+                                </h3>
+                                <p>Desain CV dapat disesuaikan dengan kebutuhan Anda. Dengan 2 pilihan CV desain, "ATS", dan "Creative".</p>
+                            </div>
+                        </div>
 
-                                    <div className="about-text">
-                                        <h4>Our History</h4>
-                                        <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.</p>
-                                    </div>
+                        <div className="col-lg-4 col-sm-6">
+                            <div className="service-card-one">
+                                <i className="pe-7s-phone bg-fc3549"></i>
+                                <h3>
+                                    <a href="/service-details">Generate ke Website</a>
+                                </h3>
+                                <p>Fitur ini memungkinkan Anda untuk mengkonversi CV pribadi Anda menjadi sebuah situs web pribadi yang menampilkan informasi Anda dengan cara yang menarik dan mudah diakses. </p>
+                            </div>
+                        </div>
 
-                                    <div className="about-text">
-                                        <h4>Our Mission</h4>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
-                                    </div>
-                                </div>
+                        <div className="col-lg-4 col-sm-6">
+                            <div className="service-card-one">
+                                <i className="pe-7s-lock bg-00d280"></i>
+                                <h3>
+                                    <a href="/service-details">Privasi dan Keamanan</a>
+                                </h3>
+                                <p>Personal Web CV Maker ini menjaga privasi data Anda. Anda dapat mengatur tingkat privasi yang Anda inginkan untuk melindungi informasi pribadi Anda.</p>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-4 col-sm-6">
+                            <div className="service-card-one">
+                                <i className="pe-7s-users bg-ff612f"></i>
+                                <h3>
+                                    <a href="/service-details">Pembaruan Mudah</a>
+                                </h3>
+                                <p>Saat Anda memperbarui pengalaman atau keterampilan Anda, pembaruan CV juga dapat dilakukan dengan cepat dan mudah.</p>
                             </div>
                         </div>
                     </div>
-
-                    {/* If you want to change the video, update the videoId */}
-                    <ModalVideo
-                        channel='youtube'
-                        isOpen={this.state.isOpen}
-                        videoId='_ysd-zHamjk'
-                        onClose={() => this.setState({ isOpen: false })}
-                    />
-                </section>
-            </>
+                </div>
+            </div>
         );
     }
 }
 
-export default About;
+export default Services;

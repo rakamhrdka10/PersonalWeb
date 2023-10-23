@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../styles/style.css';
-import '../../styles/bootstrap.min.css'
+import '../../styles/styles.css';
+import '../LandingPage/styles/bootstrap.min.css'
 import '../../styles/responsive.css';
 import '../../styles/icofont.min.css';
 import '../../styles/pe-icon-7-stroke.css';
@@ -13,60 +13,57 @@ class WorkProcess extends Component {
             <section className="work-process-area ptb-100">
                 <div className="container">
                     <div className="section-title">
-                        <h2>Our Work Process</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h2>Cara Penggunaan</h2>
+                        <p>Berikut cara penggunaan Personal Web CV Maker</p>
                     </div>
 
                     <div className="work-process">
-                        <img src="../images/man-with-mobile.png" alt="logo" />
+                        <center>
+
+                        <img src="../images/man-with-mobile.png" alt="logo" width='15px' className='w-6/12' />
+                        </center>
 
                         <div className="work-process-list">
                             <div className="single-work-process">
                                 <div className="icon">
                                     <i className="pe-7s-display1"></i>
                                 </div>
-                                <h3>Surface</h3>
-                                <span>Visual Design</span>
+                                <h3>Register</h3>
                             </div>
 
                             <div className="single-work-process">
                                 <div className="icon">
                                     <i className="pe-7s-display2"></i>
                                 </div>
-                                <h3>Skeleton</h3>
-                                <span>Wireframes</span>
+                                <h3>Login</h3>
                             </div>
 
                             <div className="single-work-process">
                                 <div className="icon">
                                     <i className="pe-7s-airplay"></i>
                                 </div>
-                                <h3>Structure</h3>
-                                <span>Screen Flow</span>
+                                <h3>Isi Data Diri</h3>
                             </div>
 
                             <div className="single-work-process">
                                 <div className="icon">
                                     <i className="pe-7s-note2"></i>
                                 </div>
-                                <h3>Scope</h3>
-                                <span>Requirements</span>
+                                <h3>Isi Data Lainnya</h3>
                             </div>
 
                             <div className="single-work-process">
                                 <div className="icon">
                                     <i className="pe-7s-light"></i>
                                 </div>
-                                <h3>User Research</h3>
-                                <span>User Research</span>
+                                <h3>Generate CV ke Web</h3>
                             </div>
 
                             <div className="single-work-process">
                                 <div className="icon">
                                     <i className="pe-7s-sun"></i>
                                 </div>
-                                <h3>Implement</h3>
-                                <span>Lunch/Analyze</span>
+                                <h3>Generate CV ke PDF</h3>
                             </div>
                         </div>
 

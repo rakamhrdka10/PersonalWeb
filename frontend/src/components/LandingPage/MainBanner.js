@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ModalVideo from 'react-modal-video';
 import 'react-modal-video/css/modal-video.min.css';
-import '../../styles/style.css';
-import '../../styles/bootstrap.min.css'
+import '../../styles/styles.css';
+import '../LandingPage/styles/bootstrap.min.css'
 import '../../styles/responsive.css';
 import '../../styles/icofont.min.css';
 import '../../styles/pe-icon-7-stroke.css';
@@ -30,8 +30,8 @@ class MainBanner extends Component {
                                     <div className="col-lg-6">
                                         <div className="main-banner-content">
                                             <span>MODERATE TEAM 1</span>
-                                            <h1>Personal WEB CV Maker</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            <h1>Personal Web CV Maker</h1>
+                                            <p>Dirancang oleh Moderate 1 Team</p>
 
                                         </div>
                                     </div>

@@ -6,9 +6,10 @@ Content-Type: application/json
 
 {
     "nama": "Admin",
-    "username": "admin123",
+    "username": "admin1234",
     "password": "admin321",
-    "confPassword": "admin321"
+    "confPassword": "admin321",
+    "role": "Admin"
 }
 
 ### Login
@@ -16,9 +17,12 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "username": "admin123",
-    "password": "admin321"
+    "username": "daffa123",
+    "password": "daffa321"
 }
+
+###
+GET http://localhost:5000/personal/1
 
 ###
 GET http://localhost:5000/personal
@@ -59,7 +63,7 @@ Content-Type: application/json
 Authorization: Bearer <>
 
 {
-    "foto": "url/",
+    "foto": "url", //kemungkinan besar bakal error jadi harus coba lewat postman
     "nama": "Muhammad Daffa Raihandika",
     "tempat_lahir" : "Bandung",
     "tanggal_lahir" : "2003-05-13",
@@ -72,7 +76,10 @@ Authorization: Bearer <>
     "telp" : "081572548494",
     "email" : "helsa.alika.tif421@polban.ac.id",
     "status" : "Mahasiswa",
-    "id_akun": 1
+    "instagram" : "daffabarudakbandungwell",
+    "github" : "daaffaa",
+    "linkedin" : "daffaraihandika",
+    "id_akun": 2
 }
 
 ### Find All
@@ -80,7 +87,7 @@ GET http://localhost:5000/personal
 Authorization: Bearer 
 
 ### Find One
-GET http://localhost:5000/personal/1
+GET http://localhost:5000/personal/4
 Authorization: Bearer <>
 
 ### Update
@@ -92,7 +99,7 @@ Authorization: Bearer <>
 }
 
 ### Delete
-DELETE http://localhost:5000/personal/1
+DELETE http://localhost:5000/personal/8
 Authorization: Bearer <>
 
 //------------------------------------------------------------//

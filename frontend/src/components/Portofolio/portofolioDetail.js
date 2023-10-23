@@ -3,15 +3,23 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaBars } from 'react-icons/fa';
 import Sidebar from "../Navigation/sidebar";
+import Navbar2 from "../Navigation/navbar2";
 
 const PortofolioDetail = () => {
-    const { id_person, id_portofolio } = useParams();
-    const [nama_portofolio, setNamaPortofolio] = useState("");
-    const [deskripsi_portofolio, setDeskripsiPortofolio] = useState("");
-    const [file_portofolio, setFilePortofolio] = useState("");
-    const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const navigate = useNavigate(); 
+  const token = localStorage.getItem('access_token');
 
-    const navigate = useNavigate();
+  if (!token){
+    navigate('/login')
+  }
+  
+  const { id_person, id_portofolio } = useParams();
+  const [nama_portofolio, setNamaPortofolio] = useState("");
+  const [deskripsi_portofolio, setDeskripsiPortofolio] = useState("");
+  const [file_portofolio, setFilePortofolio] = useState("");
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+
+  const baseUrl = 'http://localhost:5000/';
 
     useEffect(() => {
         getDetailPortofolio();
@@ -31,27 +39,33 @@ const PortofolioDetail = () => {
         }
       }
 
+      const toggleSidebar = () => {
+        setIsSidebarVisible(!isSidebarVisible);
+      };
+
     return (
       <div>
-        <div className={`bg-gray-100 ${isSidebarVisible ? '' : 'h-screen'} flex`}>
+        <Navbar2 toggleSidebar={toggleSidebar}/>
+        <div className={`bg-gray-200 ${isSidebarVisible ? '' : 'h-screen'} flex`}>
           {isSidebarVisible && <Sidebar />}
           {/* Main Content */}
           <main className={`flex-1 p-4 ${isSidebarVisible ? '' : ''}`}>
+          <button
+            className="p-2 bg-blue-500 text-white rounded-md mb-4"
+            onClick={() => setIsSidebarVisible(!isSidebarVisible)}
+            style={{ backgroundColor: '#4D4C7D' }}
+          >
+            <FaBars size={24} />
+        </button>
             {/* Tombol hamburger untuk menampilkan/sembunyikan sidebar */}
-            <button
-              className="p-2 bg-blue-500 text-white rounded-md mb-4"
-              onClick={() => setIsSidebarVisible(!isSidebarVisible)}
-            >
-              <FaBars size={24} /> {/* Ikon hamburger */}
-            </button>
-            <div className="bg-base-200 h-auto box-border p-4">
+            <div className="bg-gray-200 h-screen box-border p-4 pt-0">
               <div className="flex justify-center items-center">
                 <h1>
                   <b>Detail Portofolio</b>
                 </h1>
               </div>
-              <div className="flex justify-center items-center p-2 mt-5">
-                <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-8/12 h-auto">
+              <div className="flex justify-center items-center p-2">
+                <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-10/12 h-auto">
                   <table className="table-auto w-full">
                     <tbody>
                       <tr>
@@ -69,7 +83,7 @@ const PortofolioDetail = () => {
                       <tr>
                         <td className="border px-4 py-2 w-1/4">File Portofolio</td>
                         <td colSpan={2} className="border px-4 py-2">
-                          {file_portofolio}
+                          <img src={`${baseUrl}${file_portofolio}`} alt="foto portofolio" className="w-3/4 item-center " />
                         </td>
                       </tr>
                     </tbody>

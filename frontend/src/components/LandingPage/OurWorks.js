@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../styles/style.css';
-import '../../styles/bootstrap.min.css'
+import '../../styles/styles.css';
+import '../LandingPage/styles/bootstrap.min.css'
 import '../../styles/responsive.css';
 import '../../styles/icofont.min.css';
 import '../../styles/pe-icon-7-stroke.css';

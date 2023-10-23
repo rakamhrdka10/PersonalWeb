@@ -9,6 +9,9 @@ import Registrasi from "./components/Login/registrasi";
 import Dashboard from "./components/dashboard";
 import DataDiriCreate from "./components/DataDiri/dataDiriCreate";
 import DataDiriList from "./components/DataDiri/dataDiriList";
+import PendidikanCreate from "./components/Pendidikan/pendidikanCreate";
+import PendidikanList from "./components/Pendidikan/pendidikanList";
+import PendidikanEdit from "./components/Pendidikan/pendidikanEdit";
 import PortofolioCreate from "./components/Portofolio/portofolioCreate";
 import PortofolioList from "./components/Portofolio/portofolioList";
 import PortofolioDetail from "./components/Portofolio/portofolioDetail";
@@ -19,6 +22,10 @@ import PortofolioEdit from "./components/Portofolio/portofolioEdit";
 import SkillCreate from "./components/Skill/skillCreate";
 import SkillEdit from "./components/Skill/skillEdit";
 import SkillList from "./components/Skill/skillList";
+import DataDiriEdit from "./components/DataDiri/dataDiriEdit";
+import DataDiriDetails from "./components/DataDiri/dataDiriDetails";
+import ConvertToWeb from "./components/CV/convertToWeb";
+import NotFound404 from "./components/notFound404";
 import Convert from "./components/CV/convertToWeb2"
 axios.defaults.withCredentials = true;
 
@@ -45,8 +52,28 @@ const router = createBrowserRouter([
     element: <DataDiriCreate />,
   },
   {
+    path: "/datadiri/:id_akun",
+    element: <DataDiriDetails />,
+  },
+  {
+    path: "/datadiri/edit/:id_person",
+    element: <DataDiriEdit />,
+  },
+  {
     path: "/datadiri",
     element: <DataDiriList />,
+  },
+  {
+    path: "/pendidikan/create",
+    element: <PendidikanCreate />,
+  },
+  {
+    path: "/pendidikan/:id_person",
+    element: <PendidikanList />,
+  },
+  {
+    path: "/pendidikan/:id_person/edit/:id_pendidikan",
+    element: <PendidikanEdit />,
   },
   {
     path: "/portofolio/create",
@@ -78,15 +105,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/skill/create",
-    element: <SkillCreate/>
+    element: <SkillCreate />,
   },
   {
     path: "/skill/:id_person",
-    element: <SkillList/>
+    element: <SkillList />,
   },
   {
     path: "/skill/:id_person/edit/:id_skill",
-    element: <SkillEdit/>
+    element: <SkillEdit />,
+  },
+  {
+    path: "/:username",
+    element: <ConvertToWeb />,
+  },
+  {
+    path: "/notfound404",
+    element: <NotFound404 />,
   },
   {
     path: "/convert",

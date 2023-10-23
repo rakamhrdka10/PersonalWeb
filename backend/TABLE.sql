@@ -30,6 +30,9 @@ CREATE TABLE data_diri (
     telp VARCHAR(15),
     email VARCHAR(100),
     status VARCHAR(20),
+    instagram VARCHAR(20),
+    linkedin VARCHAR(20),
+    github VARCHAR(20),
     id_akun INT
 );
 
@@ -54,7 +57,7 @@ CREATE TABLE pendidikan (
 CREATE TABLE portofolio (
     id_portofolio SERIAL PRIMARY KEY,
     id_person INT,
-    nama_portofolio VARCHAR(50) NOT NULL,
+    nama_portofolio VARCHAR(50),
     deskripsi_portofolio TEXT,
     file_portofolio TEXT
 );
@@ -103,4 +106,4 @@ DROP TABLE IF EXISTS organisasi;
 DROP TABLE IF EXISTS akun;
 DROP TABLE IF EXISTS admin;
 
-DELETE FROM personal WHERE id_person=1;
+DELETE FROM akun WHERE id_akun=3;

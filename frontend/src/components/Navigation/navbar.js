@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import '../../styles/style.css';
+import '../../styles/styles.css';
 import '../../styles/bootstrap.min.css';
 import '../../styles/responsive.css';
 import '../../styles/rtl.css.map';
 import 'animate.css';
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
     // Navbar 
@@ -44,9 +45,9 @@ class Navbar extends Component {
             <div id="navbar" className="navbar-area">
                 <nav className="navbar navbar-expand-md navbar-light">
                     <div className="container">
-                        <a href="/" className="navbar-brand">
-                            <img src="../../images/logo.png" alt="logo" />
-                        </a>
+                    <Link to="/" className="navbar-brand ml-auto">
+                        <img src="../../images/logo.png" alt="logo" />
+                    </Link>
 
                         {/* Toggle navigation */}
                         <button
@@ -65,33 +66,16 @@ class Navbar extends Component {
                         </button>
 
                         <div className={classOne} id="navbarSupportedContent">
-                            <ul className="navbar-nav">
-                                <li className="nav-item">
-                                    <a href="/about" className="nav-link">Home</a>
-                                </li>
-
-                                <li className="nav-item">
-                                    <a href="/about" className="nav-link">About Website</a>
-                                </li>
-
-                                <li className="nav-item">
-                                    <a href="/about" className="nav-link">Work Process</a>
-                                </li>
-
-                                <li className="nav-item">
-                                    <a href="/about" className="nav-link">Team</a>
-                                </li>
-                            </ul>
 
                             <div className="others-options">
-                                <a href="/pricing" className="btn btn-primary">
+                                <a href="/login" className="btn btn-primary">
                                     Login
                                 </a>
                             </div>
 
                             <div className="others-options">
-                                <a href="/pricing" className="btn btn-primary">
-                                    Sign Up
+                                <a href="/registrasi" className="btn btn-primary">
+                                    Register
                                 </a>
                             </div>
                         </div>

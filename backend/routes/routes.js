@@ -4,11 +4,12 @@ import express from "express";
 import { verifyToken } from "../middleware/VerifyToken.js";
 import { refreshToken } from "../controllers/RefreshTokenControllers.js";
 import { createUser, login, logout } from "../controllers/AkunControllers.js";
-import { createPorto, showAllPorto, getPortoById, updatePorto, deletePorto } from "../controllers/PortoController.js";
-import { getAllPersonal, createPersonal, getPersonalById, updatePersonal, deletePersonal } from "../controllers/DataDiriControllers.js";
+import { uploadPorto, createPorto, showAllPorto, getPortoById, updatePorto, deletePorto } from "../controllers/PortoController.js";
+import { upload, getAllPersonal, createPersonal, getPersonalById, updatePersonal, deletePersonal } from "../controllers/DataDiriControllers.js";
 import { createPendidikan, showAllPendidikan, getPendidikanById, updatePendidikan, deletePendidikan } from "../controllers/PendidikanControllers.js";
 import { createOrganisasi, showAllOrganisasi, getOrganisasiById, updateOrganisasi, deleteOrganisasi } from "../controllers/OrganisasiControllers.js";
 import { createSkill, showAllSkill, getSkillById, updateSkill, deleteSkill } from "../controllers/SkillController.js";
+import { convertToWeb } from "../controllers/CVConverts.js";
 // import { registerAdmin } from "../controllers/RegisterControllers.js";
 // import { loginAdmin } from "../controllers/LoginControllers.js";
 
@@ -32,17 +33,17 @@ router.post('/login', login)
 router.delete('/logout', logout)
 
 //DATA DIRI
-router.post('/personal', createPersonal);
-router.get('/personal', verifyToken ,getAllPersonal);
+router.post('/personal', upload.single('foto'), createPersonal);
+router.get('/personal', getAllPersonal);
 router.get('/personal/:id_person', getPersonalById);
-router.patch("/personal/:id_person", updatePersonal);
+router.patch("/personal/:id_person", upload.single('foto'), updatePersonal);
 router.delete("/personal/:id_person", deletePersonal);
 
 //PORTOFOLIO
-router.post('/portofolio', createPorto);
+router.post('/portofolio', uploadPorto.single('file_portofolio'),createPorto);
 router.get('/portofolio/:id_person', showAllPorto);
 router.get('/portofolio/:id_person/:id_portofolio', getPortoById);
-router.patch('/portofolio/:id_portofolio', updatePorto);
+router.patch('/portofolio/:id_portofolio', uploadPorto.single('file_portofolio'), updatePorto);
 router.delete('/portofolio/:id_portofolio', deletePorto);
 
 //PENDIDIKAN
@@ -65,5 +66,8 @@ router.get('/skill/:id_person', showAllSkill);
 router.get('/skill/:id_person/:id_skill', getSkillById);
 router.patch('/skill/:id_skill', updateSkill);
 router.delete('/skill/:id_skill', deleteSkill);
+
+//CONVERTER
+router.post('/convert-web', convertToWeb);
 
 export default router;

@@ -1,10 +1,25 @@
 //DataDiriControllers.js
 
+import multer from 'multer'
 import DataDiri from '../models/DataDiriModels.js';
 import Porto from '../models/PortoModels.js';
 import Organisasi from '../models/OrganisasiModels.js';
 import Pendidikan from '../models/PendidikanModels.js';
 import Skill from '../models/SkillModels.js';
+import mime from 'mime';
+
+//define multer for uploads any files
+const storage = multer.diskStorage({
+  destination: function(req, file, cb){
+    cb(null, './uploads/datadiri');
+  },
+  filename: function(req, file, cb) {
+    cb(null, new Date().toISOString().replace(/:/g, '-').replace(/ /g, '-') + file.originalname);
+  }
+});
+
+//inisialisasi upload
+export const upload = multer({storage:storage});
 
 export const getAllPersonal = async (req, res) => {
     try {
@@ -30,9 +45,12 @@ export const createPersonal = async (req, res) => {
       return res.status(409).json({ error: 'Akun sudah ada' });
     }
 
+    const foto = req.file ? req.file.path : null; //cek apakah file di upload
+
     const personal = await DataDiri.create({
       ...req.body,
-      id_akun: id_akun, 
+      id_akun: id_akun,
+      foto: foto, 
     });
 
     res.status(201).json({ msg: 'New DataDiri Created', data: personal });
@@ -47,7 +65,7 @@ export const getPersonalById = async (req, res) => {
   const { id_person } = req.params;
   try {
     const response = await DataDiri.findOne({
-      where: { id_person: id_person },
+      where: { id_akun: id_person },
       include: [ Porto, Organisasi, Pendidikan, Skill],
     });
 
@@ -66,17 +84,27 @@ export const updatePersonal = async (req, res) => {
   const { id_person } = req.params;
 
   try {
-    // Remove enum fields from req.body to prevent conflicts
-    delete req.body.agama;
-    delete req.body.jenis_kelamin;
 
-    const [updated] = await DataDiri.update(req.body, {
-      where: { id_person: id_person },
-    });
+    const foto = req.file ? req.file.path : null; //cek apakah file di upload
+
+    console.log("foto: " + foto);
+
+    const updateData = { ...req.body };
+    if (req.file) {
+      updateData.foto = req.file.path;
+    }
+
+    const [updated] = await DataDiri.update(
+      updateData,
+      {
+        where: { id_akun: id_person },
+      }
+    );
+
 
     if (updated) {
       const updatedPersonal = await DataDiri.findOne({
-        where: { id_person: id_person },
+        where: { id_akun: id_person },
         include: [Porto, Organisasi, Pendidikan, Skill],
       });
       return res.status(200).json({ message: 'Data diri updated', data: updatedPersonal });
