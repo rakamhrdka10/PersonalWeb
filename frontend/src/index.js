@@ -19,6 +19,7 @@ import PortofolioEdit from "./components/Portofolio/portofolioEdit";
 import SkillCreate from "./components/Skill/skillCreate";
 import SkillEdit from "./components/Skill/skillEdit";
 import SkillList from "./components/Skill/skillList";
+import Convert from "./components/CV/convertToWeb2"
 axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
   {
     path: "/skill/:id_person/edit/:id_skill",
     element: <SkillEdit/>
+  },
+  {
+    path: "/convert",
+    element: <Convert/>,
   },
 ]);
 root.render(
