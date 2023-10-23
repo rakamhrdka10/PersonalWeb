@@ -40,6 +40,11 @@ const OrganisasiEdit = () => {
       return;
     }
 
+    if (!/[A-Za-z]/.test(nama_organisasi)) {
+      setError("Isikan dengan Huruf");
+      return;
+    }
+
     if (!/[A-Za-z]/.test(posisi)) {
       setError("Isikan dengan Huruf");
       return;
