@@ -76,6 +76,20 @@ const PendidikanEdit = () => {
       return; // Prevent further execution
     }
 
+    // Validation for instansi_pendidikan
+    if (!/[A-Za-z]/.test(formData.instansi_pendidikan)) {
+      setMsg("Isikan dengan Huruf");
+      return;
+    }
+
+    // Validation for jurusan
+    if (!/[A-Za-z]/.test(formData.jurusan)) {
+      setMsg("Isikan dengan Huruf");
+      return;
+    }
+  
+    setMsg("");
+
     try {
       const response = await axios.post("http://localhost:5000/pendidikan", {
         ...formData,
