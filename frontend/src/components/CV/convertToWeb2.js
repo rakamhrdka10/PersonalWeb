@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Navigation/navbar";
-import MainBanner from "./MainBanner";
-import About from "../LandingPage/About";
+import MainBanner from "./Main";
+import Pendidikan from "./pendidikan"
 import Team from '../Common/Team';
 import WorkProcess from "../LandingPage/WorkProcess";
 import Footer from "../Layout/footer";
@@ -13,7 +13,7 @@ const LandingPage = () => {
 
       <MainBanner />
 
-      <About />
+      <Pendidikan />
 
       <Team />
 

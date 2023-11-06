@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import ModalVideo from 'react-modal-video';
 import 'react-modal-video/css/modal-video.min.css';
-import '../../styles/style.css';
+import '../../styles/styles.css';
 import '../../styles/responsive.css';
 import '../../styles/icofont.min.css';
 import '../../styles/pe-icon-7-stroke.css';
@@ -20,7 +20,7 @@ const MainBanner = ({ data }) => {
   return (
     <>
       <GenerateWeb />
-      <div className="main-banner item-bg1">
+      <div className="hero-banner it-banner overly hero-bg4">
         <div className="d-table">
           <div className="d-table-cell">
             <div className="container">
@@ -33,19 +33,15 @@ const MainBanner = ({ data }) => {
                   </div>
                 </div>
                 <div className="col-lg-6">
-                  <div className="banner-animation-image">
-                    <img
-                      src={`${baseUrl}${data.foto}`}
-                      className="main-pic animate__animated animate__fadeInUp animate__delay-0.5s"
-                      alt="image"
-                    />
+                <div className="animate-banner-image">
+                  <img src="/images/animate-banner-img1.jpg" alt="Animate image" style={{width: 400}} />
+                </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };
