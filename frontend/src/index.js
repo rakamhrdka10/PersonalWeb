@@ -24,7 +24,7 @@ import SkillEdit from "./components/Skill/skillEdit";
 import SkillList from "./components/Skill/skillList";
 import DataDiriEdit from "./components/DataDiri/dataDiriEdit";
 import DataDiriDetails from "./components/DataDiri/dataDiriDetails";
-import ConvertToWeb from "./components/CV/convertToWeb";
+import ConvertToWeb from "./components/CV/personalWeb";
 import NotFound404 from "./components/notFound404";
 import Convert from "./components/CV/convertToWeb2"
 axios.defaults.withCredentials = true;
