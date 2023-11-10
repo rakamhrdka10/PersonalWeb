@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import { Carousel } from "react-bootstrap";
 
 const PersWebRafi = () => {
   const [data, setData] = useState(null);
@@ -31,7 +32,7 @@ const PersWebRafi = () => {
           <h1 className="text-4xl font-bold mb-8 text-center">
             Personal Web Rafi
           </h1>
-          
+
           <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
             <div>
               <img
@@ -174,29 +175,38 @@ const PersWebRafi = () => {
             </table>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-6">
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
             <h2 className="text-xl font-semibold mb-4">Portfolio</h2>
-            <table className="table-auto w-full">
-              <tbody>
-                {data.data_diri.portofolios.map((portofolio, index) => (
-                  <tr key={index}>
-                    <td>
-                      <img
-                        src={`${baseUrl}${portofolio.file_portofolio}`}
-                        alt={`Portfolio ${index + 1}`}
-                        className="rounded-lg w-full"
-                      />
-                      <p className="font-semibold mt-2">
+            <Carousel>
+              {data.data_diri.portofolios.map((portofolio, index) => (
+                <Carousel.Item key={index}>
+                  <div style={{ position: "relative" }}>
+                    <img
+                      className="d-block w-100"
+                      src={`${baseUrl}${portofolio.file_portofolio}`}
+                      alt={`Portfolio ${index + 1}`}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        width: "100%",
+                        background: "rgba(255, 255, 255, 0.7)",
+                        padding: "10px",
+                      }}
+                    >
+                      <h3 style={{ color: "black" }}>
                         {portofolio.nama_portofolio}
-                      </p>
-                      <p className="text-sm mt-1">
+                      </h3>
+                      <p style={{ color: "black" }}>
                         {portofolio.deskripsi_portofolio}
                       </p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    </div>
+                  </div>
+                </Carousel.Item>
+              ))}
+            </Carousel>
           </div>
         </div>
       ) : (
