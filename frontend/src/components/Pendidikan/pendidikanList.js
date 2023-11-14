@@ -9,9 +9,10 @@ const PendidikanList = () => {
   const navigate = useNavigate(); 
   const token = localStorage.getItem('access_token');
 
-  if (!token){
-    navigate('/login')
+  if (!token) {
+    navigate('/login');
   }
+
   const { id_person } = useParams();
   const [pendidikan, setPendidikan] = useState([]);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -27,7 +28,9 @@ const PendidikanList = () => {
       );
       console.log("Berhasil ambil data pendidikan dari id_person =", id_person);
       console.log("Data:", response.data);
-      setPendidikan(response.data);
+      // Tambahkan nomor urut pada data pendidikan
+      const pendidikanWithIndex = response.data.map((item, index) => ({ ...item, index: index + 1 }));
+      setPendidikan(pendidikanWithIndex);
     } catch (error) {
       console.log(error.message);
     }
@@ -93,16 +96,20 @@ const PendidikanList = () => {
                 <table className="table-auto w-full">
                   <thead>
                     <tr>
+                      <th className="border px-4 py-2 w-1/15">No</th>
                       <th className="border px-4 py-2 w-4/15">Instansi Pendidikan</th>
                       <th className="border px-4 py-2 w-3/15">Jurusan</th>
-                      <th className="border px-4 py-2 w-2/15">Tahun Mulai Ajaran</th>
-                      <th className="border px-4 py-2 w-2/15">Tahun Akhir Ajaran</th>
+                      <th className="border px-4 py-2 w-2/15">Tanggal Mulai Ajaran</th>
+                      <th className="border px-4 py-2 w-2/15">Tanggal Akhir Ajaran</th>
                       <th className="border px-4 py-2 w-4/15">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     {pendidikan.map((pendidikanItem) => (
                       <tr key={pendidikanItem.id_pendidikan}>
+                        <td className="border px-4 py-2 text-center">
+                          {pendidikanItem.index}
+                        </td>
                         <td className="border px-4 py-2">
                           {pendidikanItem.instansi_pendidikan}
                         </td>
@@ -110,10 +117,10 @@ const PendidikanList = () => {
                           {pendidikanItem.jurusan}
                         </td>
                         <td className="border px-4 py-2">
-                          {pendidikanItem.tahun_mulai_ajaran.substring(0, 4)}
+                          {pendidikanItem.tahun_mulai_ajaran}
                         </td>
                         <td className="border px-4 py-2">
-                          {pendidikanItem.tahun_akhir_ajaran.substring(0, 4)}
+                          {pendidikanItem.tahun_akhir_ajaran}
                         </td>
                         <td className="border px-4 py-2 text-center">
                           <button

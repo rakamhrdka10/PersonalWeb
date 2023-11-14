@@ -26,7 +26,9 @@ const OrganisasiList = () => {
       const response = await axios.get(`http://localhost:5000/organisasi/${id_person}`);
       console.log("Berhasil ambil data organisasi dari id_person =", id_person);
       console.log("Data :", response.data);
-      setOrganizations(response.data);
+      // Tambahkan nomor urut pada data organisasi
+      const organizationsWithIndex = response.data.map((item, index) => ({ ...item, index: index + 1 }));
+      setOrganizations(organizationsWithIndex);
     } catch (error) {
       console.log(error.message);
     }
@@ -97,20 +99,22 @@ const OrganisasiList = () => {
                 <table className="table-auto w-full">
                   <thead>
                     <tr>
-                      <th className="border px-4 py-2">Nama Organisasi</th>
-                      <th className="border px-4 py-2">Posisi</th>
-                      <th className="border px-4 py-2">Tanggal Mulai Menjabat</th>
-                      <th className="border px-4 py-2">Tanggal Akhir Menjabat</th>
-                      <th className="border px-4 py-2">Aksi</th>
+                      <th className="border px-4 py-2 w-1/15">No</th>
+                      <th className="border px-4 py-2 w-4/15">Nama Organisasi</th>
+                      <th className="border px-4 py-2 w-3/15">Posisi</th>
+                      <th className="border px-4 py-2 w-2/15">Tanggal Mulai Menjabat</th>
+                      <th className="border px-4 py-2 w-2/15">Tanggal Akhir Menjabat</th>
+                      <th className="border px-4 py-2 w-4/15">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     {organizations.map((organisasi) => (
                       <tr key={organisasi.id_organisasi}>
+                        <td className="border px-4 py-2 text-center">{organisasi.index}</td>
                         <td className="border px-4 py-2">{organisasi.nama_organisasi}</td>
                         <td className="border px-4 py-2">{organisasi.posisi}</td>
-                        <td className="border px-4 py-2">{extractYearFromDate(organisasi.tanggal_mulai_menjabat)}</td>
-                        <td className="border px-4 py-2">{extractYearFromDate(organisasi.tanggal_akhir_menjabat)}</td>
+                        <td className="border px-4 py-2">{organisasi.tanggal_mulai_menjabat}</td>
+                        <td className="border px-4 py-2">{organisasi.tanggal_akhir_menjabat}</td>
                         <td className="border px-4 py-2 text-center">
                           <div className="flex">
                             <button

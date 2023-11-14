@@ -26,7 +26,9 @@ const PortofolioList = () => {
       const response = await axios.get(`http://localhost:5000/portofolio/${id_person}`)
       console.log("Berhasil ambil data portofolio dari id_person = ", id_person)
       console.log("Data : ", response.data)
-      setPortofolios(response.data)
+      // Tambahkan nomor urut pada data portofolio
+      const portofoliosWithIndex = response.data.map((item, index) => ({ ...item, index: index + 1 }));
+      setPortofolios(portofoliosWithIndex);
     } catch (error) {
       console.log(error.message)
     }
@@ -41,16 +43,16 @@ const PortofolioList = () => {
   }
 
   const redirectToAddPortofolio = () => {
-    navigate('/portofolio/create')
+    navigate('/portofolio/create');
   }
 
   const deletePortoHandler = async(id_portofolio) => {
     const confirmDelete = window.confirm("Apakah Anda yakin ingin menghapus data ini?");
     if(confirmDelete){
       try {
-        await axios.delete(`http://localhost:5000/portofolio/${id_portofolio}`)
+        await axios.delete(`http://localhost:5000/portofolio/${id_portofolio}`);
         window.location.reload();
-        console.log("Data berhasil dihapus")
+        console.log("Data berhasil dihapus");
       } catch (error) {
         console.log(error);
       }
@@ -68,13 +70,13 @@ const PortofolioList = () => {
         {isSidebarVisible && <Sidebar />}
         {/* Main Content */}
         <main className={`flex-1 p-4 ${isSidebarVisible ? '' : ''}`}>
-        <button
+          <button
             className="p-2 bg-blue-500 text-white rounded-md mb-4"
             onClick={() => setIsSidebarVisible(!isSidebarVisible)}
             style={{ backgroundColor: '#4D4C7D' }}
           >
             <FaBars size={24} />
-        </button>
+          </button>
           {/* Tombol hamburger untuk menampilkan/sembunyikan sidebar */}
           <div className="bg-gray-200 h-screen box-border p-4 pt-0">
             <div className="flex justify-center items-center">
@@ -93,17 +95,19 @@ const PortofolioList = () => {
                 <table className="table-auto w-full">
                   <thead>
                     <tr>
-                      <th className="border px-4 py-2 w-4/12">Nama Portofolio</th>
-                      <th className="border px-4 py-2 w-4/12" >Deskripsi Portofolio</th>
-                      <th className="border px-4 py-2 w-4/12" >Aksi</th>
+                      <th className="border px-4 py-2 w-1/6">No</th>
+                      <th className="border px-4 py-2 w-1/6">Nama Portofolio</th>
+                      <th className="border px-4 py-2 w-2/6">Deskripsi Portofolio</th>
+                      <th className="border px-4 py-2 w-2/6">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     {portofolios.map((portofolio) => (
                       <tr key={portofolio.id_portofolio}>
-                        <td className="border px-4 py-2" >{portofolio.nama_portofolio}</td>
-                        <td className="border px-4 py-2" >{portofolio.deskripsi_portofolio}</td>
-                        <td className="border px-4 py-2 text-center" >
+                        <td className="border px-4 py-2 text-center w-1/6">{portofolio.index}</td>
+                        <td className="border px-4 py-2 w-1/6">{portofolio.nama_portofolio}</td>
+                        <td className="border px-4 py-2 w-2/6">{portofolio.deskripsi_portofolio}</td>
+                        <td className="border px-4 py-2 text-center w-2/6">
                           <button
                             className="btn btn-sm btn-info inline-block" style={{ backgroundColor: '#3876BF', color: '#fff' }}
                             onClick={() => redirectToPortofolioDetails(portofolio.id_portofolio)}

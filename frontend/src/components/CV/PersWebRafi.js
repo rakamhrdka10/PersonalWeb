@@ -26,28 +26,12 @@ const PersWebRafi = () => {
   }, [username]);
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-10 flex flex-col md:flex-row">
       {data && data.data_diri ? (
-        <div>
-          <h1 className="text-4xl font-bold mb-8 text-center">
-            Personal Web Rafi
-          </h1>
-
+        <div className="md:w-3/4">
+          {/* Left Column */}
           <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-            <div>
-              <img
-                src={`${baseUrl}${data.data_diri.foto}`}
-                alt=""
-                className="mask mask-squircle mx-auto mb-4 w-80 h-auto"
-              />
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4 text-center">
-              Personal Information
-            </h2>
-
+            <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
                 <p>
@@ -142,7 +126,7 @@ const PersWebRafi = () => {
                     <td>
                       <div className="bg-gray-200 h-6 rounded-lg">
                         <div
-                          className="bg-pink-500 h-full rounded-lg"
+                          className="bg-blue-500 h-full rounded-lg"
                           style={{ width: `${skill.capability}%` }}
                         ></div>
                       </div>
@@ -174,23 +158,31 @@ const PersWebRafi = () => {
               </tbody>
             </table>
           </div>
-
           <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
             <h2 className="text-xl font-semibold mb-4">Portfolio</h2>
             <Carousel>
               {data.data_diri.portofolios.map((portofolio, index) => (
                 <Carousel.Item key={index}>
-                  <div style={{ position: "relative" }}>
+                  <div
+                    style={{
+                      position: "center",
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                    }}
+                  >
                     <img
                       className="d-block w-100"
                       src={`${baseUrl}${portofolio.file_portofolio}`}
                       alt={`Portfolio ${index + 1}`}
+                      style={{ objectFit: "cover", height: "100%" }}
                     />
                     <div
                       style={{
                         position: "absolute",
                         bottom: 0,
                         left: 0,
+                        height: "30%",
                         width: "100%",
                         background: "rgba(255, 255, 255, 0.7)",
                         padding: "10px",
@@ -212,6 +204,23 @@ const PersWebRafi = () => {
       ) : (
         <div className="text-center">Loading...</div>
       )}
+
+      {data && data.data_diri ? (
+        <div className="md:w-1/4 md:pl-4">
+          {/* Right Column */}
+          <div className="text-center">
+              <img
+                src={`${baseUrl}${data.data_diri.foto}`}
+                alt=""
+                className="mask mask-circle mx-auto mb-4 w-auto h-auto"
+                style={{
+                  maxWidth: "200%",
+                  maxHeight: "200%",
+                }}
+              />
+            </div>
+        </div>
+      ) : null}
     </div>
   );
 };

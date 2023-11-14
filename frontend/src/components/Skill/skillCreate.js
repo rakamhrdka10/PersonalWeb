@@ -7,11 +7,11 @@ import '../../styles/style.css';
 import Navbar2 from "../Navigation/navbar2";
 
 const SkillCreate = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const token = localStorage.getItem('access_token');
 
-  if (!token){
-    navigate('/login')
+  if (!token) {
+    navigate('/login');
   }
 
   const [id_person, setIdPerson] = useState("");
@@ -21,12 +21,12 @@ const SkillCreate = () => {
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    setIdPerson(localStorage.getItem('id'))
-  }, [])
+    setIdPerson(localStorage.getItem('id'));
+  }, []);
 
   const redirectCancelButton = () => {
-    navigate(`/skill/${id_person}`)
-  }
+    navigate(`/skill/${id_person}`);
+  };
 
   const createSkillHandler = async (e) => {
     e.preventDefault();
@@ -41,34 +41,35 @@ const SkillCreate = () => {
         id_person,
         nama_skill,
         capability,
-      })
+      });
 
-      navigate(`/skill/${id_person}`)
+      navigate(`/skill/${id_person}`);
       console.log('Berhasil membuat portofolio baru');
       console.log('Data skill : ', response);
     } catch (error) {
-      console.log(error.message)
+      setMsg("Terjadi kesalahan saat menyimpan data.");
+      console.log(error.message);
     }
-  }
+  };
 
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
-  return(
+  return (
     <div>
-      <Navbar2 toggleSidebar={toggleSidebar}/>
+      <Navbar2 toggleSidebar={toggleSidebar} />
       <div className={`bg-gray-200 ${isSidebarVisible ? '' : 'h-screen'} flex`}>
         {isSidebarVisible && <Sidebar />}
         {/* Main Content */}
         <main className={`flex-1 p-4 ${isSidebarVisible ? '' : ''}`}>
-        <button
+          <button
             className="p-2 bg-blue-500 text-white rounded-md mb-4"
             onClick={() => setIsSidebarVisible(!isSidebarVisible)}
             style={{ backgroundColor: '#4D4C7D' }}
           >
             <FaBars size={24} />
-        </button>
+          </button>
           {/* Tombol hamburger untuk menampilkan/sembunyikan sidebar */}
           <div className="bg-gray-200 h-screen box-border p-4 pt-0">
             <div className="flex justify-center items-center">
@@ -78,6 +79,9 @@ const SkillCreate = () => {
             </div>
             <div className="flex justify-center items-center p-2">
               <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-10/12 h-auto">
+                {msg && (
+                  <div className="text-red-500 text-sm mb-4">{msg}</div>
+                )}
                 <form onSubmit={createSkillHandler}>
                   <div className="mb-4 flex items-center hide-element">
                     <label className="w-1/3 mr-2">
@@ -118,7 +122,6 @@ const SkillCreate = () => {
                       required
                     />
                   </div>
-                  <p className="error-message">{msg}</p>
                   <div className="mt-10 flex justify-center items-center">
                     <button className="btn btn-danger btn-sm mr-2 w-1/3" onClick={redirectCancelButton}>
                       Cancel
