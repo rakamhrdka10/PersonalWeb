@@ -97,13 +97,13 @@ const PersWebDaffa = () => {
                   <Row>
                     <Col xs={9} className="text-light deskripsi">
                       <Row>
-                        <Col>{data.data_diri.deskripsi}</Col>
+                        <Col className="deskripsi">{data.data_diri.deskripsi}</Col>
                       </Row>
                       <Row>
                         <Col className="content-element">
-                          <p className="d-inline-block text-light tab" onClick={openTab('educations')}>Education</p>
-                          <p className="d-inline-block text-light tab" onClick={openTab('organization')}>Organization</p>
-                          <p className="d-inline-block text-light tab" onClick={openTab('skill')}>Skill</p>
+                          <p className="d-inline-block tab" onClick={openTab('educations')}>Education</p>
+                          <p className="d-inline-block tab" onClick={openTab('organization')}>Organization</p>
+                          <p className="d-inline-block tab" onClick={openTab('skill')}>Skill</p>
 
                           <div className="tab-content content-active" id="educations">
                             <div className="info">
@@ -113,7 +113,7 @@ const PersWebDaffa = () => {
 
                                 return (
                                   <React.Fragment key={index}>
-                                    <p className="text-light">
+                                    <p className="text-light title">
                                       {pendidikan.instansi_pendidikan}{" "}
                                       <span>({startDate.getFullYear()} - {endDate.getFullYear()})</span>
                                     </p>
@@ -132,7 +132,7 @@ const PersWebDaffa = () => {
 
                                 return (
                                   <React.Fragment key={index}>
-                                    <p className="text-light">
+                                    <p className="text-light title">
                                       {organisasi.nama_organisasi}{" "}
                                       <span>({startDate.getFullYear()} - {endDate.getFullYear()})</span>
                                     </p>
@@ -149,7 +149,7 @@ const PersWebDaffa = () => {
                                   return (
                                     <div className="info" style={{ width:"20%" }}>
                                     <React.Fragment key={index}>
-                                      <p className="text-light">{skill.nama_skill}</p>
+                                      <p className="text-light title text-center mb-3">{skill.nama_skill}</p>
                                       <CircularProgressbarWithChildren
                                         value={skill.capability}
                                         text={`${skill.capability}%`}
@@ -230,9 +230,15 @@ const PersWebDaffa = () => {
                   <h1 className="text-light title">Contact Me</h1>
                   <p className="text-light">For business inquiry please send email to <span>{data.data_diri.email}</span></p>
                   <div className="wrapper">
-                    <AiOutlineInstagram className="contact-element" size={"50px"} color="#fff"/>
+                  <a href={'https://instagram.com/' + data.data_diri.instagram} target="_blank" rel="noopener noreferrer">
+                    <AiOutlineInstagram className="contact-element" size={"50px"} color="#fff" />
+                  </a>
+                  <a href={'https://linkedin.com/in/' + data.data_diri.linkedin} target="_blank" rel="noopener noreferrer">
                     <AiOutlineLinkedin className="contact-element" size={"50px"} color="#fff"/>
+                  </a>
+                  <a href={'https://github.com/' + data.data_diri.github} target="_blank" rel="noopener noreferrer">
                     <AiOutlineGithub className="contact-element" size={"50px"} color="#fff"/>
+                  </a>
                   </div>
                 </section>
               </Container>

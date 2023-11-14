@@ -1,3 +1,23 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Monsterrat';
+  src: url('../fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato/Lato-Black.ttf') format('truetype');
+}
+
 #persWebDaffa{
     background-color: #1B2F33;
     height: 100%;
@@ -10,6 +30,8 @@
 
 .navbar-element .nav-link {
     margin-right: 20px;
+    font-family: 'Poppins';
+    font-size: 14px;
 }
   
 .navbar-element .nav-link:last-child {
@@ -18,6 +40,7 @@
 
 .introduce{
     padding-top: 8rem;
+    font-family: 'Monsterrat';
 }
 
 #profile{
@@ -25,11 +48,17 @@
     padding-bottom: 7rem;
 }
 
+#profile .deskripsi{
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
 .title{
     font-size: 30px;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     margin-bottom: 40px;
     padding-top: 2rem;
+    font-family: 'Lato';
 }
 
 .content-element .tab {
@@ -37,6 +66,9 @@
     margin-top: 2rem;
     padding: 0;
     cursor: pointer;
+    font-family: 'Poppins';
+    color: #75E6DA;
+    font-size: 16px;
 }
   
 .content-element p:last-child {
@@ -45,6 +77,19 @@
 
 .tab-content{
     display: none;
+}
+
+.tab-content .title{
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
+  font-weight: bold;
+}
+
+.tab-content .subtitle{
+  font-size: 14px;
+  font-family: 'Roboto';
 }
 
 .content-active{
@@ -122,11 +167,15 @@
   .text-overlay h2 {
     font-size: 24px;
     margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    font-weight: bold;
   }
   
   .text-overlay p {
     font-size: 16px;
     margin: 0;
+    font-family: 'Roboto';
   }
   
   #contact{
@@ -134,10 +183,15 @@
     padding-bottom: 7rem;
   }
 
+  #contact p{
+    font-size: 16px;
+    font-family: 'Roboto';
+  }
+
   .wrapper{
     display: flex;
   }
 
-  .contact-element:not(:last-child) {
+  #contact a:not(:last-child) {
     margin-right: 20px;
   }
