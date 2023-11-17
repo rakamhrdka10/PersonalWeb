@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import '../../styles/PersWebDaffa.css'
 
 // Bootstrap
@@ -73,7 +73,7 @@ const PersWebDaffa = () => {
     <div>
       {data && data.data_diri ? (
         <>
-            <div id="persWebDaffa">
+            <div id="persWebDaffa" className="w-full">
               <Container>
                 <section id="home">
                   <Navbar expand="lg" className="bg-body-tertiary">
@@ -95,7 +95,7 @@ const PersWebDaffa = () => {
                 <section id="profile">
                   <h1 className="text-light title">Profile</h1>
                   <Row>
-                    <Col xs={9} className="text-light deskripsi">
+                    <Col lg={9} className="text-light deskripsi">
                       <Row>
                         <Col className="deskripsi">{data.data_diri.deskripsi}</Col>
                       </Row>
@@ -145,45 +145,41 @@ const PersWebDaffa = () => {
 
                           <div className="tab-content" id="skill">
                             <div className="wrapper">
-                                {data.data_diri.skills.map((skill, index) => {
-                                  return (
-                                    <div className="info" style={{ width:"20%" }}>
-                                    <React.Fragment key={index}>
+                                {data.data_diri.skills.map((skill, index) => (
+                                  <div className="info" style={{ width: "20%" }} key={`skill-${index}`}>
+                                    <React.Fragment>
                                       <p className="text-light title text-center mb-3">{skill.nama_skill}</p>
                                       <CircularProgressbarWithChildren
+                                        key={`circular-progress-${index}`}
                                         value={skill.capability}
                                         text={`${skill.capability}%`}
                                         strokeWidth={10}
-                                        styles={
-                                            buildStyles({
-                                            strokeLinecap: "butt",
-                                          })
-                                        }
-                                        
+                                        styles={buildStyles({
+                                          strokeLinecap: "butt",
+                                        })}
                                       >
                                         <RadialSeparators
                                           count={12}
                                           style={{
                                             background: "#fff",
                                             width: "2px",
-                                            height: `${10}%`
+                                            height: `${10}%`,
                                           }}
                                         />
                                       </CircularProgressbarWithChildren>
                                     </React.Fragment>
                                   </div>
-                                  )
-                                })}
+                                ))}
                             </div>
                           </div>
                         </Col>
                       </Row>
                     </Col>
-                    <Col className="text-light d-flex justify-content-center">
+                    <Col lg={3} className="text-light d-flex justify-content-center">
                     <img
                       src={`${baseUrl}${data.data_diri.foto}`}
                       alt=""
-                      className="w-100"
+                      className="img-profile"
                       style={{ height: "auto" }}
                     />
                     </Col>
@@ -203,10 +199,6 @@ const PersWebDaffa = () => {
                     navigation={true}
                     modules={[Pagination, Navigation]}
                     className="mySwiper"
-                    style={{ 
-                      width: "75%",
-                      height: "500px"
-                    }}
                   >
                     {data.data_diri.portofolios.map((portofolio, index) => (
                       <SwiperSlide key={index}>
@@ -224,6 +216,7 @@ const PersWebDaffa = () => {
                       </SwiperSlide>
                     ))}
                   </Swiper>
+
                 </section>
 
                 <section id="contact">

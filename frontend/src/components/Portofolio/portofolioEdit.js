@@ -83,7 +83,7 @@ const PortofolioEdit = () => {
             <FaBars size={24} />
         </button>
           {/* Tombol hamburger untuk menampilkan/sembunyikan sidebar */}
-          <div className="bg-gray-200 h-screen box-border p-4 pt-0">
+          <div className="bg-gray-200 box-border p-4 pt-0">
             <div className="flex justify-center items-center">
               <h1>
                 <b>Edit Portofolio</b>
