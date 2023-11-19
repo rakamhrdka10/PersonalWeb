@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { Carousel } from "react-bootstrap";
+import Navbar2 from '../Navigation/navbar2';
 
 const PersWebRafi = () => {
   const [data, setData] = useState(null);
@@ -26,6 +27,9 @@ const PersWebRafi = () => {
   }, [username]);
 
   return (
+    <div>
+    {/* Navbar */}
+    <Navbar2 />
     <div className="container mx-auto p-10 flex flex-col md:flex-row">
       {data && data.data_diri ? (
         <div className="md:w-3/4">
@@ -208,19 +212,20 @@ const PersWebRafi = () => {
       {data && data.data_diri ? (
         <div className="md:w-1/4 md:pl-4">
           {/* Right Column */}
-          <div className="text-center">
-              <img
-                src={`${baseUrl}${data.data_diri.foto}`}
-                alt=""
-                className="mask mask-circle mx-auto mb-4 w-auto h-auto"
-                style={{
-                  maxWidth: "200%",
-                  maxHeight: "200%",
-                }}
-              />
-            </div>
+          <div className="text-center" style={{ marginTop: "80px" }}>
+            <img
+              src={`${baseUrl}${data.data_diri.foto}`}
+              alt=""
+              className="mask mask-circle mx-auto mb-4 w-auto h-auto"
+              style={{
+                maxWidth: "200%",
+                maxHeight: "200%",
+              }}
+            />
+          </div>
         </div>
       ) : null}
+    </div>
     </div>
   );
 };
