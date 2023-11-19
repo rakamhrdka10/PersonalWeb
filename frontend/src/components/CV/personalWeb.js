@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import PersWebAini from "./PersWebAini";
+import PersWebAini from "./PersWebAini/PersWebAini.js";
 import PersWebDaffa from "./PersWebDaffa";
 import PersWebGhessa from "./PersWebGhessa";
 import PersWebHelsa from "./PersWebHelsa";

@@ -1,27 +1,27 @@
 import React from "react";
 import Navbar from "./components/Navigation/navbar";
 import MainBanner from "./components/LandingPage/MainBanner";
-import About from "./components/LandingPage/About";
+import Services from "./components/LandingPage/Service";
 import Team from './components/Common/Team';
 import WorkProcess from "./components/LandingPage/WorkProcess";
-import Footer from "./components/Layout/footer";
+import Footer from "./components/Navigation/footer";
 
 const LandingPage = () => {
   return (
-    <>
-      <Navbar />
+      <>
+          <Navbar />
 
-      <MainBanner />
+          <MainBanner />
 
-      <About />
+          <Services />
 
-      <Team />
+          <WorkProcess />
 
-      <WorkProcess />
-
-      <Footer />
-    </>
+          <Team />
+                
+          <Footer />
+      </>
   );
-};
+}
 
 export default LandingPage;
