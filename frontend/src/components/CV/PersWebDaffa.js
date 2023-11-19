@@ -33,8 +33,6 @@ const PersWebDaffa = () => {
   const [data, setData] = useState(null);
   const {username} = useParams();
   const baseUrl = "http://localhost:5000/";
-  const percentage = 66;
-  
 
   const getData = async () => {
     try {
