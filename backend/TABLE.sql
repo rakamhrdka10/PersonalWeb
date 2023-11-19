@@ -92,7 +92,6 @@ CREATE SCHEMA public;
 DROP TYPE IF EXISTS "public"."enum_akun_role";
 
 
-
 -- Drop database
 
 DROP DATABASE IF EXISTS postgres;
@@ -108,3 +107,11 @@ DROP TABLE IF EXISTS akun;
 DROP TABLE IF EXISTS admin;
 
 DELETE FROM akun WHERE id_akun=3;
+
+-- Create ENUM type if it doesn't exist
+DO $$ 
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_akun_role') THEN
+        CREATE TYPE "public"."enum_akun_role" AS ENUM ('Admin', 'User');
+    END IF;
+END $$;
