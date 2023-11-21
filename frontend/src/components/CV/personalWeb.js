@@ -8,11 +8,12 @@ import PersWebHelsa from "./PersWebHelsa";
 import PersWebRafi from "./PersWebRafi";
 
 const ConvertToWeb = () => {
-  const [activeView, setActiveView] = useState('first');
+  const [activeView, setActiveView] = useState(localStorage.getItem('template'));
 
   // Fungsi untuk mengalihkan antara tampilan pertama dan kedua
   const handleSelect = (eventKey) => {
     setActiveView(eventKey);
+    localStorage.setItem('template', eventKey);
   };
 
   const dropdownStyle = {
@@ -27,9 +28,9 @@ const ConvertToWeb = () => {
       {/* <button onClick={toggleView}>Toggle View</button> */}
       <div style={dropdownStyle}>
         <DropdownButton id="dropdown-basic-button" title="Switch View" variant="success" onSelect={handleSelect}>
-          <Dropdown.Item eventKey="first" style={{ width: '100%', textAlign: 'center' }}>Personal Web Helsa</Dropdown.Item>
-          <Dropdown.Item eventKey="second" style={{ width: '100%', textAlign: 'center' }}>Personal Web Daffa</Dropdown.Item>
-          <Dropdown.Item eventKey="third" style={{ width: '100%', textAlign: 'center' }}>Personal Web Aini</Dropdown.Item>
+          <Dropdown.Item eventKey="first" style={{ width: '100%', textAlign: 'center' }}>Personal Web Daffa</Dropdown.Item>
+          <Dropdown.Item eventKey="second" style={{ width: '100%', textAlign: 'center' }}>Personal Web Aini</Dropdown.Item>
+          <Dropdown.Item eventKey="third" style={{ width: '100%', textAlign: 'center' }}>Personal Web Helsa</Dropdown.Item>
           <Dropdown.Item eventKey="fourth" style={{ width: '100%', textAlign: 'center' }}>Personal Web Ghessa</Dropdown.Item>
           <Dropdown.Item eventKey="fifth" style={{ width: '100%', textAlign: 'center' }}>Personal Web Rafi</Dropdown.Item>
         </DropdownButton>
@@ -37,14 +38,14 @@ const ConvertToWeb = () => {
       {activeView === 'first' ? (
         <PersWebDaffa/>
       ) : activeView === 'second' ?(
-        <PersWebDaffa/>
-      ) : activeView === 'third' ?(
         <PersWebAini/>
+      ) : activeView === 'third' ?(
+        <PersWebHelsa/>
       ) : activeView === 'fourth' ? (
         <PersWebGhessa/>
       ) : activeView === 'fifth' ? (
         <PersWebRafi/>
-      ) : null}
+      ) : <PersWebDaffa/>}
     </div>
   );
 }

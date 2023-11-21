@@ -24,8 +24,10 @@ const Sidebar = () => {
   const logoutHandler = async() => {
     try {
       localStorage.removeItem('id');
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('username_akun');
+      localStorage.removeItem('role_akun');
       axios.delete('http://localhost:5000/logout');
-      localStorage.clear()
       navigate('/');
       console.log("berhasil logout")
     } catch (error) {

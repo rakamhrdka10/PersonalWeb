@@ -7,6 +7,10 @@ import { FaBars } from "react-icons/fa";
 import Navbar2 from './Navigation/navbar2';
 import { useNavigate } from "react-router-dom";
 import generatePDF from "./pdfGenerator";
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Carousel from 'react-bootstrap/Carousel';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 const Dashboard = () => {
   const [nama, setNama] = useState("");
@@ -82,12 +86,18 @@ const Dashboard = () => {
     generatePDF(cvData);
   };
 
+  const handleChooseTemplate = (templateName) => {
+    localStorage.setItem('template', templateName);
+    generateToWebHandler()
+  };
+  
+
   return (
     <div>
       {/* Navbar */}         
       <Navbar2 toggleSidebar={toggleSidebar}/>
       
-      <div className={`bg-gray-200 ${isSidebarVisible ? 'h-screen' : 'h-screen'} flex`}>
+      <div className={`bg-gray-200 ${isSidebarVisible ? 'h-auto' : 'h-auto'} flex`}>
         {isSidebarVisible && <Sidebar />}
         <main className={`flex-1 p-4 ${isSidebarVisible ? "" : ""}`}>
           <button
@@ -103,12 +113,45 @@ const Dashboard = () => {
           </div>
 
           {cvData ? (
-            <div className="flex flex-row">
-              <div className="bg-white p-4 rounded-lg shadow-md w-1/4 mt-5 mr-4">
+            <div className="flex flex-wrap">
+              <div className="bg-white p-4 rounded-lg shadow-md w-2/4 mt-4 mr-4">
                 <p className="text-lg">Generate CV to Web</p>
-                <button onClick={generateToWebHandler} className="btn btn-outline btn-success btn-sm mt-2">Click</button>
+
+                {/* Disini */}
+                <Carousel 
+                  prevIcon={<BsChevronLeft style={{ color: 'white', fontSize: '2rem' }} />}
+                  nextIcon={<BsChevronRight style={{ color: 'white', fontSize: '2rem' }} />}
+                  indicators={false}
+                  // onSelect={(selectedIndex, e) => {
+                  //   // Set state selectedTemplate sesuai dengan indeks yang dipilih
+                  //   setSelectedTemplate(selectedIndex === 0 ? 'first' : 'second');
+                  // }}
+                >
+                  <Carousel.Item>
+                    <Card style={{ width: '100%' }}>
+                      <Card.Img variant="top" src="/images/personal-web/persWeb1.png" />
+                      <Card.Body>
+                        <Card.Title>Template 1</Card.Title>
+                        <Button variant="primary" onClick={() => handleChooseTemplate('first')}>Choose Template</Button>
+                      </Card.Body>
+                    </Card>
+                  </Carousel.Item>
+
+                  <Carousel.Item>
+                    <Card style={{ width: '100%' }}>
+                      <Card.Img variant="top" src="/images/personal-web/persWeb2.png" />
+                      <Card.Body>
+                        <Card.Title>Template 2</Card.Title>
+                        <Button variant="primary" onClick={() => handleChooseTemplate('second')}>Choose Template</Button>
+                      </Card.Body>
+                    </Card>
+                  </Carousel.Item>
+                </Carousel>
+                {/* Disini */}
+                {/* <button onClick={generateToWebHandler} className="btn btn-outline btn-success btn-sm mt-2">Click</button> */}
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-md w-1/4 mt-5">
+
+              <div className="bg-white p-4 rounded-lg shadow-md w-1/4 mt-4" style={{ height: 'fit-content'}}>
                 <p className="text-lg">Generate CV to PDF</p>
                 <button onClick={generatePDFHandler} className="btn btn-outline btn-success btn-sm mt-2">Click</button>
               </div>
