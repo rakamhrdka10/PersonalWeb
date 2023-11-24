@@ -19,6 +19,7 @@ CREATE TABLE data_diri (
     id_person SERIAL PRIMARY KEY,
     foto TEXT,
     nama VARCHAR(50) NOT NULL,
+    deskripsi TEXT NOT NULL,
     tempat_lahir VARCHAR(50),
     tanggal_lahir DATE,
     usia INT,
@@ -30,6 +31,9 @@ CREATE TABLE data_diri (
     telp VARCHAR(15),
     email VARCHAR(100),
     status VARCHAR(20),
+    instagram VARCHAR(20),
+    linkedin VARCHAR(20),
+    github VARCHAR(20),
     id_akun INT
 );
 
@@ -54,7 +58,7 @@ CREATE TABLE pendidikan (
 CREATE TABLE portofolio (
     id_portofolio SERIAL PRIMARY KEY,
     id_person INT,
-    nama_portofolio VARCHAR(50) NOT NULL,
+    nama_portofolio VARCHAR(50),
     deskripsi_portofolio TEXT,
     file_portofolio TEXT
 );
@@ -85,6 +89,8 @@ ALTER TABLE akun DROP CONSTRAINT IF EXISTS akun_id_person_fk;
 DROP SCHEMA public CASCADE;
 CREATE SCHEMA public;
 
+DROP TYPE IF EXISTS "public"."enum_akun_role";
+
 
 -- Drop database
 
@@ -100,4 +106,12 @@ DROP TABLE IF EXISTS organisasi;
 DROP TABLE IF EXISTS akun;
 DROP TABLE IF EXISTS admin;
 
-DELETE FROM personal WHERE id_person=1;
+DELETE FROM akun WHERE id_akun=3;
+
+-- Create ENUM type if it doesn't exist
+DO $$ 
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_akun_role') THEN
+        CREATE TYPE "public"."enum_akun_role" AS ENUM ('Admin', 'User');
+    END IF;
+END $$;

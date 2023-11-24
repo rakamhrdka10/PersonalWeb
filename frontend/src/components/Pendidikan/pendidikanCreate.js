@@ -1,22 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import Sidebar from "../Navigation/sidebar";
+import "../../styles/style.css";
+import Navbar2 from "../Navigation/navbar2";
 
 const PendidikanCreate = () => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("access_token");
+
+  if (!token) {
+    navigate("/login");
+  }
+
   const [formData, setFormData] = useState({
     instansi_pendidikan: "",
     jurusan: "",
     tahun_mulai_ajaran: "",
     tahun_akhir_ajaran: "",
-    id_person: "",
   });
+
+  const [id_person, setIdPerson] = useState("");
 
   const [msg, setMsg] = useState("");
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    setIdPerson(localStorage.getItem("id"));
+  }, []);
+
+  const redirectCancelButton = () => {
+    navigate(`/pendidikan/${id_person}`);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,13 +44,37 @@ const PendidikanCreate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/pendidikan",
-        formData
-      );
 
-      navigate(`/pendidikan/${formData.id_person}`);
+    // Additional validation to check if tahun_mulai_ajaran is earlier than tahun_akhir_ajaran
+    const startDate = new Date(formData.tahun_mulai_ajaran);
+    const endDate = new Date(formData.tahun_akhir_ajaran);
+
+    if (startDate >= endDate) {
+      setMsg("Tahun mulai ajaran harus lebih awal dari tahun akhir ajaran.");
+      return; // Prevent further execution
+    }
+
+    // Validation for instansi_pendidikan
+    if (!/[A-Za-z]/.test(formData.instansi_pendidikan)) {
+      setMsg("Isikan dengan Huruf");
+      return;
+    }
+
+    // Validation for jurusan
+    if (!/[A-Za-z]/.test(formData.jurusan)) {
+      setMsg("Isikan dengan Huruf");
+      return;
+    }
+
+    setMsg("");
+
+    try {
+      const response = await axios.post("http://localhost:5000/pendidikan", {
+        ...formData,
+        id_person,
+      });
+
+      navigate(`/pendidikan/${id_person}`);
       console.log("Pendidikan record created successfully:");
       console.log("Response:", response.data);
     } catch (error) {
@@ -49,23 +89,25 @@ const PendidikanCreate = () => {
 
   return (
     <div>
+      <Navbar2 toggleSidebar={toggleSidebar} />
       <div className={`bg-gray-200 ${isSidebarVisible ? "" : "h-screen"} flex`}>
         {isSidebarVisible && <Sidebar />}
         <main className={`flex-1 p-4 ${isSidebarVisible ? "" : ""}`}>
           <button
             className="p-2 bg-blue-500 text-white rounded-md mb-4"
-            onClick={toggleSidebar}
+            onClick={() => setIsSidebarVisible(!isSidebarVisible)}
+            style={{ backgroundColor: "#4D4C7D" }}
           >
             <FaBars size={24} />
           </button>
-          <div className="bg-gray-200 h-auto box-border p-4">
-            <div className="flex justify-center items-center mt-5">
+          <div className="bg-gray-200 h-screen box-border p-4 pt-0">
+            <div className="flex justify-center items-center">
               <h1>
                 <b>Tambah Pendidikan</b>
               </h1>
             </div>
-            <div className="flex justify-center items-center p-2 mt-5">
-              <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-8/12 h-auto">
+            <div className="flex justify-center items-center p-2">
+              <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-10/12 h-auto">
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4 flex items-center">
                     <label className="w-1/3 mr-2">
@@ -129,26 +171,12 @@ const PendidikanCreate = () => {
                       />
                     </div>
                   </div>
-                  <div className="mb-4 flex items-center">
-                    <label className="w-1/3 mr-1">
-                      <span className="label-text">ID Person</span>
-                      <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="number"
-                      name="id_person"
-                      value={formData.id_person}
-                      onChange={handleChange}
-                      placeholder="ID Person"
-                      className="bg-gray-300 input input-bordered input-sm w-2/3"
-                      required
-                    />
-                  </div>
 
                   <div className="mt-10 flex justify-center items-center">
                     <button
                       type="button"
-                      className="btn btn-error btn-sm mr-2 w-1/3"
+                      className="btn btn-danger btn-sm mr-2 w-1/3"
+                      onClick={redirectCancelButton}
                     >
                       Cancel
                     </button>
@@ -160,7 +188,17 @@ const PendidikanCreate = () => {
                     </button>
                   </div>
                 </form>
-                <p>{msg}</p>
+                {msg && (
+                  <p
+                    className={`text-center mt-4 ${
+                      msg.startsWith("Error")
+                        ? "text-red-500"
+                        : "text-green-500"
+                    }`}
+                  >
+                    {msg}
+                  </p>
+                )}
               </div>
             </div>
           </div>
