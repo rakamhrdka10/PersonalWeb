@@ -127,7 +127,7 @@ const PendidikanEdit = () => {
                       value={formData.instansi_pendidikan}
                       onChange={handleChange}
                       placeholder="Nama Instansi Pendidikan"
-                      className="bg-gray-300 input input-bordered input-sm w-2/3"
+                      className="input input-bordered input-sm w-2/3"
                       required
                     />
                   </div>
@@ -141,7 +141,7 @@ const PendidikanEdit = () => {
                       value={formData.jurusan}
                       onChange={handleChange}
                       placeholder="Jurusan"
-                      className="bg-gray-300 input input-bordered input-sm w-2/3"
+                      className="input input-bordered input-sm w-2/3"
                       required
                     />
                   </div>
@@ -154,7 +154,7 @@ const PendidikanEdit = () => {
                       name="tahun_mulai_ajaran"
                       value={formData.tahun_mulai_ajaran}
                       onChange={handleChange}
-                      className="bg-gray-300 input input-bordered input-sm w-2/3"
+                      className="input input-bordered input-sm w-2/3"
                       required
                     />
                   </div>
@@ -167,7 +167,7 @@ const PendidikanEdit = () => {
                       name="tahun_akhir_ajaran"
                       value={formData.tahun_akhir_ajaran}
                       onChange={handleChange}
-                      className="bg-gray-300 input input-bordered input-sm w-2/3"
+                      className="input input-bordered input-sm w-2/3"
                       required
                     />
                   </div>
