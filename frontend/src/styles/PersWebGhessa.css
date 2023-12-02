@@ -1,0 +1,67 @@
+#portfolio {
+    height: 100vh;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mySwiper {
+    width: 75%;
+    height: 500px;
+  }
+  
+  .swiper-slide {
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide-container {
+    position: relative;
+    height: 400px; /* Adjust the height as per your design */
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    color: white;
+    padding: 20px; /* Adjust the padding as needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  }
+  
+  .text-overlay h2 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+  
+  .text-overlay p {
+    font-size: 16px;
+    margin: 0;
+    font-family: 'Roboto';
+    line-height: 1.2;
+  }
+  

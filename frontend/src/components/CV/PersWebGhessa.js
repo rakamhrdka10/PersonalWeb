@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { AiOutlineInstagram, AiOutlineLinkedin, AiOutlineGithub } from 'react-icons/ai';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-// Swiper
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+
+// Carousel
+import Carousel from 'react-bootstrap/Carousel';
+
+
 
 const PersWebGhessa = () => {
   const [data, setData] = useState(null);
@@ -158,7 +155,24 @@ const PersWebGhessa = () => {
           <section id="portfolio">
             <h2 className="text-light p-5 title text-center">Portofolio</h2>
 
-            <Swiper
+            <Carousel fade>
+              {data.data_diri.portofolios.map((portofolio, index) => (
+                <Carousel.Item key={index}>
+                  <img
+                    src={`${baseUrl}${portofolio.file_portofolio}`}
+                    alt={`Portfolio ${index + 1}`}
+                    style={{ maxHeight: "500px", width: "100%" }} // Sesuaikan dengan tinggi yang diinginkan
+                  />
+                  <Carousel.Caption>
+                    <h3>{portofolio.nama_portofolio}</h3>
+                    <p>{portofolio.deskripsi_portofolio}</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              ))}
+            </Carousel>
+
+            
+            {/* <Swiper
               slidesPerView={1}
               spaceBetween={30}
               loop={true}
@@ -188,7 +202,7 @@ const PersWebGhessa = () => {
                   </div>
                 </SwiperSlide>
               ))}
-            </Swiper>
+            </Swiper> */}
           </section>
 
           {/* Contact */}
