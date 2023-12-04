@@ -1,118 +1,211 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 const PersWebHelsa = () => {
   const [data, setData] = useState(null);
-  const {username} = useParams();
+  const { username } = useParams();
   const baseUrl = "http://localhost:5000/";
 
   const getData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/convert-web/${username}`);
+      const response = await axios.get(
+        `http://localhost:5000/convert-web/${username}`
+      );
       console.log("Data : ", response.data.data);
       setData(response.data.data);
-      console.log("Data web 1: ",response.data.data);
+      console.log("Data web 1: ", response.data.data);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     getData();
-  }, [username])
-
+  }, [username]);
 
   return (
     <div>
       {data && data.data_diri ? (
-       <div>
-       {/* Tampilan pertama */}
-       <div className="p-6 w-6/12 h-6/12 mx-auto bg-white border-2 border-pink-500 rounded-xl shadow-md flex items-center justify-center mt-5">
-         <div className="text-xl font-medium text-gray-500 text-center">
-           {data.data_diri.nama}
-         </div>
-       </div>
-       <div className="text-center p-2">{data.data_diri.status}</div>
-       <div>
-         <img
-           src={`${baseUrl}${data.data_diri.foto}`}
-           alt=""
-           className="mask mask-squircle mx-auto mt-4 w-32 h-auto"
-         />
-       </div>
-       <div className="flex flex-col w-full lg:flex-row items-stretch flex-wrap">
-         <div className="flex flex-col items-end justify-start flex-grow rounded-box pr-4">
-           <h2 className="text-xl font-bold text-right">Introduction</h2>
-           <p className="text-sm mt-2 text-right">
-             {/* Halo, saya {data.data_diri.nama} saya lahir pada tanggal {data.data_diri.tanggal_lahir}<br />
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br />Ut enim ad minim veniam, quis nostrud exercitation ullamco <br />laboris nisi ut aliquip ex ea commodo consequat */}
-             {data.data_diri.deskripsi}
-           </p>
-           <h2 className="text-xl font-bold mt-4">Pendidikan</h2>
-           <div>
-             <ul className="steps steps-vertical">
-               {data.data_diri.pendidikans.map((pendidikan, index) => (
-                 <li className="step step-primary" key={index}>
-                   {pendidikan.instansi_pendidikan}
-                 </li>
-               ))}
-             </ul>
-           </div>
-         </div>
-         <div className="divider lg:divider-horizontal"></div>
-         <div className="flex flex-col items-start justify-start flex-grow h-32 rounded-box pl-4">
-           <h2 className="text-xl font-bold">Skill</h2>
-           <div className="flex items-start space-y-2 ml-5">
-             {data.data_diri.skills.map((skill, index) => (
-               <div className="mr-3" key={index}>
-                 <span className="font-medium mr-2">{skill.nama_skill}</span>
-                 <div
-                   className="radial-progress text-pink-600"
-                   style={{
-                     "--value": skill.capability,
-                     "--thickness": "2px"
-                   }}
-                 >
-                   {skill.capability}%
-                 </div>
-               </div>
-             ))}
-           </div>
-           <h2 className="text-xl font-bold mt-5">Organisasi</h2>
-           {data.data_diri.organisasis.map((organisasi, index) => (
-             <div key={index}>
-               <p className="font-medium">{organisasi.nama_organisasi}</p>
-               <p className="text-sm">{organisasi.posisi}</p>
-             </div>
-           ))}
-         </div>
-       </div>
-       <h2 className="text-xl font-bold text-center">Portofolio</h2>
-       <div className="flex justify-center mt-4 p-4 border-2 border-gray-300 bg-white rounded-xl w-8/12 mx-auto mb-20">
-         <div className="grid grid-cols-4 gap-4 mt-4">
-           {data.data_diri.portofolios.map((portofolio, index) => (
-             <div key={index} className="rounded-box">
-               <img
-                 src={`${baseUrl}${portofolio.file_portofolio}`}
-                 alt={`portofolio ${index + 1}`}
-                 className="w-full"
-               />
-               <p className="font-medium mt-2">{portofolio.nama_portofolio}</p>
-               <p className="text-sm mt-1">{portofolio.deskripsi_portofolio}</p>
-             </div>
-           ))}
-         </div>
-       </div>
-     </div>
-   ) : (
-     <div>Loading...</div>
-   ) 
-      }
-    </div>
-  )
-}
+        <div>
+          {/* Tampilan pertama */}
+          <div
+            className="hero min-h-screen"
+            style={{
+              background: "linear-gradient(to right, #94B9FF, #FFCDF9)",
+            }}
+          >
+            <div className="hero-content flex-col lg:flex-row-reverse">
+              <div className="text-center">
+                <h1 className="text-5xl font-bold">
+                  Hello, I am {data.data_diri.nama}
+                </h1>
+                <p className="py-6">{data.data_diri.deskripsi}</p>
+                <button className="btn btn-primary">Download My CV</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="hero min-h-screen">
+              <div className="hero-content flex-col lg:flex-row">
+                <div className="mr-6">
+                  <img
+                    src={`${baseUrl}${data.data_diri.foto}`}
+                    alt=""
+                    className="max-w-xs max-h-xs mask mask-circle"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
 
-export default PersWebHelsa
+                <div>
+                  <h1 className="text-3xl font-bold">
+                    Take a look at my Personal Details!
+                  </h1>
+                  <p className="py-6">
+                    <table className="table">
+                      <tbody>
+                        <tr>
+                          <td className="font-semibold">Full Name</td>
+                          <td>{data.data_diri.nama}</td>
+                        </tr>
+                        <tr>
+                          <td className="font-semibold">Birthplace and Date</td>
+                          <td>
+                            {data.data_diri.tempat_lahir},
+                            {data.data_diri.tanggal_lahir}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="font-semibold">Address</td>
+                          <td>{data.data_diri.alamat}</td>
+                        </tr>
+                        <tr>
+                          <td className="font-semibold">Religion</td>
+                          <td>{data.data_diri.agama}</td>
+                        </tr>
+                        <tr>
+                          <td className="font-semibold">Gender</td>
+                          <td>{data.data_diri.jenis_kelamin}</td>
+                        </tr>
+                        {/* Tambahkan baris tambahan untuk data lainnya */}
+                      </tbody>
+                    </table>
+                  </p>
+                  <a href="#scrollToHere" className="btn btn-primary">
+                    Let's get to know me better
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="scrollToHere"
+            className="flex flex-col md:flex-row w-full mt-2"
+          >
+            <div className="w-full md:w-1/2">
+              <div className="text-center">
+                <h1 className="text-3xl font-bold">
+                  My Educational Background
+                </h1>
+              </div>
+              <div className="text-center">
+                <ul className="steps steps-vertical">
+                  {data.data_diri.pendidikans.map((pendidikan, index) => (
+                    <li className="step step-secondary" key={index}>
+                      <div className="my-10 text-left">
+                        <i>{pendidikan.tahun_mulai_ajaran}</i>
+                        <p>{pendidikan.instansi_pendidikan}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2">
+              <div className="text-center">
+                <h1 className="text-3xl font-bold">
+                  Organizational Experience
+                </h1>
+              </div>
+              <div className="text-center">
+                <ul className="steps steps-vertical">
+                  {data.data_diri.organisasis.map((organisasi, index) => (
+                    <li className="step step-accent" key={index}>
+                      <div className="my-10 text-left">
+                        <i>{`${organisasi.tanggal_mulai_menjabat} - ${organisasi.tanggal_akhir_menjabat}`}</i>{" "}
+                        <p>{`${organisasi.nama_organisasi} (${organisasi.posisi})`}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="mt-5">
+              <div className="text-center">
+                <h1 className="text-3xl font-bold">Check Out My Skills !</h1>
+              </div>
+              <div className="flex w-full justify-evenly my-10 flex-col md:flex-row">
+                {data.data_diri.skills.map((skill, index) => (
+                  <>
+                    <div className="text-center p-3">
+                      <div
+                        className="radial-progress"
+                        style={{
+                          "--value": skill.capability,
+                          "--size": "9rem",
+                          "--thickness": "2px",
+                        }}
+                        role="progressbar"
+                      >
+                        {skill.capability}%
+                      </div>
+                      <div className="mt-3">
+                        <p>{skill.nama_skill}</p>
+                      </div>
+                    </div>
+                  </>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="mt-5">
+            <div className="text-center">
+              <h1 className="text-3xl font-bold">
+                Take a look at my Portofolios
+              </h1>
+            </div>
+            <div className="flex w-full justify-evenly my-10 flex-col md:flex-row p-2">
+              {data.data_diri.portofolios.map((portofolio, index) => (
+                <div>
+                  <div className="card card-compact w-96 bg-base-100 shadow-xl text-center mb-5">
+                    <figure className="w-96 h-64 overflow-hidden">
+                      <img
+                        src={`${baseUrl}${portofolio.file_portofolio}`}
+                        alt={`portofolio ${index + 1}`}
+                        className="object-cover w-full h-full"
+                      />
+                    </figure>
+                    <div className="card-body text-left">
+                      <h5 className="font-bold">
+                        {portofolio.nama_portofolio}
+                      </h5>
+                      <p>{portofolio.deskripsi_portofolio}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
+    </div>
+  );
+};
+
+export default PersWebHelsa;

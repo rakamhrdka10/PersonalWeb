@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { FiEdit } from "react-icons/fi";
+import { BsTrash } from "react-icons/bs";
 import Sidebar from "../Navigation/sidebar";
 import Navbar2 from "../Navigation/navbar2";
 
@@ -86,14 +89,10 @@ const PendidikanList = () => {
             <div className="flex justify-center items-center p-2">
               <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-10/12 h-auto">
                 <div className="flex justify-end items-center p-2 mb-4">
-                  <button
-                    onClick={redirectToAddPendidikan}
-                    className="btn btn-success"
-                  >
-                    Tambah Pendidikan
-                  </button>
+                  <AiOutlinePlusCircle size={25} onClick={redirectToAddPendidikan} className="mr-2" style={{cursor: 'pointer'}} />
+                  <span onClick={redirectToAddPendidikan} style={{cursor: 'pointer'}}>Tambah Baru</span>
                 </div>
-                <table className="table-auto w-full">
+                <table className="table-auto w-full" style={{ tableLayout: 'fixed' }}>
                   <thead>
                     <tr>
                       <th className="border px-4 py-2 w-1/15">No</th>
@@ -113,7 +112,7 @@ const PendidikanList = () => {
                         <td className="border px-4 py-2">
                           {pendidikanItem.instansi_pendidikan}
                         </td>
-                        <td className="border px-4 py-2">
+                        <td className="border px-4 py-2" style={{ whiteSpace: 'pre-line', overflowWrap: 'break-word' }}>
                           {pendidikanItem.jurusan}
                         </td>
                         <td className="border px-4 py-2">
@@ -123,18 +122,10 @@ const PendidikanList = () => {
                           {pendidikanItem.tahun_akhir_ajaran}
                         </td>
                         <td className="border px-4 py-2 text-center">
-                          <button
-                            className="btn btn-sm btn-success ml-3"
-                            onClick={() => redirectToEditPendidikan(pendidikanItem.id_pendidikan)}
-                          >
-                            Edit
-                          </button>
-                          <button
-                            className="btn btn-sm btn-danger ml-3"
-                            onClick={() => deletePendidikanHandler(pendidikanItem.id_pendidikan)}
-                          >
-                            Delete
-                          </button>
+                          <div className="flex justify-center">
+                            <FiEdit onClick={() => redirectToEditPendidikan(pendidikanItem.id_pendidikan)} className="mr-2" style={{cursor: 'pointer', color: '#6B7280'}} />
+                            <BsTrash onClick={() => deletePendidikanHandler(pendidikanItem.id_pendidikan)} style={{cursor: 'pointer', color: '#EF4444'}} />
+                          </div>
                         </td>
                       </tr>
                     ))}

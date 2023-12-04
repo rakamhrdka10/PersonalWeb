@@ -6,10 +6,10 @@ Content-Type: application/json
 
 {
     "nama": "Admin",
-    "username": "admin1234",
+    "username": "admin12345",
     "password": "admin321",
     "confPassword": "admin321",
-    "role": "Admin"
+    "role": "User"
 }
 
 ### Login
@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/personal/1
+GET http://localhost:5000/personal/6
 
 ###
 GET http://localhost:5000/personal

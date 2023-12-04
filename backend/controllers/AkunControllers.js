@@ -3,7 +3,7 @@
 import Akun from '../models/AkunModels.js';
 import jwt from 'jsonwebtoken';
 import DataDiri from '../models/DataDiriModels.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export const createUser = async (req, res) => {
     try {
@@ -21,8 +21,8 @@ export const createUser = async (req, res) => {
         return res.status(409).json({ msg: 'Username sudah digunakan' });
       }
 
-      const salt = await bcrypt.genSalt();
-      const hashPassword = await bcrypt.hash(password, salt);
+      const salt = await bcrypt.genSaltSync(); // Use bcryptjs's synchronous version
+      const hashPassword = await bcrypt.hashSync(password, salt); // Use bcryptjs's synchronous version
   
       // Buat admin baru
       const newUser = await Akun.create({
@@ -56,7 +56,7 @@ export const login = async (req, res) => {
     }
 
     // Cek apakah password sesuai
-    const match = await bcrypt.compare(password, akun.password);
+    const match = await bcrypt.compareSync(password, akun.password);
     if (!match) {
       return res.status(401).json({ msg: 'Username atau password salah' });
     }

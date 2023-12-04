@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaBars } from 'react-icons/fa';
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { FiEdit } from "react-icons/fi";
+import { BsTrash } from "react-icons/bs";
 import Sidebar from "../Navigation/sidebar";
 import Navbar2 from "../Navigation/navbar2";
 
@@ -83,11 +86,10 @@ const SkillList = () => {
             <div className="flex justify-center items-center p-2">
               <div className="bg-white rounded-lg shadow-lg p-6 m-4 w-10/12 h-auto">
                 <div className="flex justify-end items-center p-2 mb-4">
-                  <button onClick={redirectToAddSkill} className="btn btn-success">
-                    Tambah Skill
-                  </button>
+                  <AiOutlinePlusCircle size={25} onClick={redirectToAddSkill} className="mr-2" style={{cursor: 'pointer'}} />
+                  <span onClick={redirectToAddSkill} style={{cursor: 'pointer'}}>Tambah Baru</span>
                 </div>
-                <table className="table-auto w-full">
+                <table className="table-auto w-full" style={{ tableLayout: 'fixed' }}>
                   <thead>
                     <tr>
                       <th className="border px-4 py-2">No</th>
@@ -103,18 +105,10 @@ const SkillList = () => {
                         <td className="border px-4 py-2">{skill.nama_skill}</td>
                         <td className="border px-4 py-2">{skill.capability}%</td>
                         <td className="border px-4 py-2 text-center">
-                          <button
-                            className="btn btn-sm btn-success ml-3"
-                            onClick={() => redirectToEditSkill(skill.id_skill)}
-                          >
-                            Edit
-                          </button>
-                          <button
-                            className="btn btn-sm btn-danger ml-3"
-                            onClick={() => deleteSkillHandler(skill.id_skill)}
-                          >
-                            Delete
-                          </button>
+                          <div className="flex justify-center">
+                            <FiEdit onClick={() => redirectToEditSkill(skill.id_skill)} className="mr-2" style={{cursor: 'pointer', color: '#6B7280'}} />
+                            <BsTrash onClick={() => deleteSkillHandler(skill.id_skill)} style={{cursor: 'pointer', color: '#EF4444'}} />
+                          </div>
                         </td>
                       </tr>
                     ))}

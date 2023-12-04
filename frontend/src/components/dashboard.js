@@ -116,16 +116,10 @@ const Dashboard = () => {
             <div className="flex flex-wrap">
               <div className="bg-white p-4 rounded-lg shadow-md w-2/4 mt-4 mr-4">
                 <p className="text-lg">Generate CV to Web</p>
-
-                {/* Disini */}
                 <Carousel 
                   prevIcon={<BsChevronLeft style={{ color: 'white', fontSize: '2rem' }} />}
                   nextIcon={<BsChevronRight style={{ color: 'white', fontSize: '2rem' }} />}
                   indicators={false}
-                  // onSelect={(selectedIndex, e) => {
-                  //   // Set state selectedTemplate sesuai dengan indeks yang dipilih
-                  //   setSelectedTemplate(selectedIndex === 0 ? 'first' : 'second');
-                  // }}
                 >
                   <Carousel.Item>
                     <Card style={{ width: '100%' }}>
@@ -146,9 +140,37 @@ const Dashboard = () => {
                       </Card.Body>
                     </Card>
                   </Carousel.Item>
+
+                  <Carousel.Item>
+                    <Card style={{ width: '100%' }}>
+                      <Card.Img variant="top" src="/images/personal-web/persWeb3.png" />
+                      <Card.Body>
+                        <Card.Title>Template 3</Card.Title>
+                        <Button variant="primary" onClick={() => handleChooseTemplate('third')}>Choose Template</Button>
+                      </Card.Body>
+                    </Card>
+                  </Carousel.Item>
+
+                  <Carousel.Item>
+                    <Card style={{ width: '100%' }}>
+                      <Card.Img variant="top" src="/images/personal-web/persWeb4.png" />
+                      <Card.Body>
+                        <Card.Title>Template 4</Card.Title>
+                        <Button variant="primary" onClick={() => handleChooseTemplate('forth')}>Choose Template</Button>
+                      </Card.Body>
+                    </Card>
+                  </Carousel.Item>
+
+                  <Carousel.Item>
+                    <Card style={{ width: '100%' }}>
+                      <Card.Img variant="top" src="/images/personal-web/persWeb5.png" />
+                      <Card.Body>
+                        <Card.Title>Template 5</Card.Title>
+                        <Button variant="primary" onClick={() => handleChooseTemplate('fifth')}>Choose Template</Button>
+                      </Card.Body>
+                    </Card>
+                  </Carousel.Item>
                 </Carousel>
-                {/* Disini */}
-                {/* <button onClick={generateToWebHandler} className="btn btn-outline btn-success btn-sm mt-2">Click</button> */}
               </div>
 
               <div className="bg-white p-4 rounded-lg shadow-md w-1/4 mt-4" style={{ height: 'fit-content'}}>

@@ -4,6 +4,7 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {},
+    "neutral": "#2a323c",
   },
   plugins: [require("daisyui")],
 };
