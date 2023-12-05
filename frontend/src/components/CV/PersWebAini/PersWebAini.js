@@ -18,7 +18,6 @@ const PersWebAini = () => {
     { icon: "fa-home", menuName: "Home" },
     { icon: "fa-user", menuName: "About" },
     { icon: "fa-briefcase", menuName: "Portfolio" },
-    { icon: "fa-envelope-open", menuName: "Contact" },
   ];
   
   const [data, setData] = useState(null);
@@ -42,7 +41,7 @@ const PersWebAini = () => {
   }, [username]);
 
   return (
-    <div>
+    <div id="ai-body">
       {data && data.data_diri ? (
     <>
     <div className="yellow">
@@ -75,17 +74,6 @@ const PersWebAini = () => {
 
           {/* Portfolio Content Starts */}
           <TabPanel className="portfolio professional">
-            <div
-              className="title-section text-left text-sm-center"
-              data-aos="fade-up"
-              data-aos-duration="1200"
-            >
-              <h1>
-                my <span>portfolio</span>
-              </h1>
-              <span className="title-bg">works</span>
-            </div>
-            {/* End title */}
             <Portfolio />
           </TabPanel>
           {/* Portfolio Content Ends */}
