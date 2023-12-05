@@ -122,7 +122,7 @@ const OrganisasiEdit = () => {
                     <input
                       type="text"
                       placeholder="Nama Organisasi"
-                      className="bg-gray-300 input input-bordered input-sm"
+                      className="input input-bordered input-sm"
                       style={{ width: "50%" }}
                       value={nama_organisasi}
                       onChange={(e) => setNamaOrganisasi(e.target.value)}
@@ -137,7 +137,7 @@ const OrganisasiEdit = () => {
                     <input
                       type="text"
                       placeholder="Posisi"
-                      className="bg-gray-300 input input-bordered input-sm"
+                      className="input input-bordered input-sm"
                       style={{ width: "50%" }}
                       value={posisi}
                       onChange={(e) => setPosisi(e.target.value)}
@@ -153,7 +153,7 @@ const OrganisasiEdit = () => {
                     <input
                       type="date"
                       placeholder="Tanggal Mulai Menjabat"
-                      className="bg-gray-300 input input-bordered input-sm"
+                      className="input input-bordered input-sm"
                       style={{ width: "50%" }}
                       value={tanggal_mulai_menjabat}
                       onChange={(e) => setTanggalMulai(e.target.value)}
@@ -169,7 +169,7 @@ const OrganisasiEdit = () => {
                     <input
                       type="date"
                       placeholder="Tanggal Akhir Menjabat"
-                      className="bg-gray-300 input input-bordered input-sm"
+                      className="input input-bordered input-sm"
                       style={{ width: "50%" }}
                       value={tanggal_akhir_menjabat}
                       onChange={(e) => setTanggalAkhir(e.target.value)}

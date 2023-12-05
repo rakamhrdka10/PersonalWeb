@@ -91,7 +91,7 @@ const SkillCreate = () => {
                     <input
                       type="number"
                       placeholder="Id Person"
-                      className="bg-gray-300 input input-bordered input-sm w-2/3"
+                      className="input input-bordered input-sm w-2/3"
                       value={id_person}
                       disabled
                     />
@@ -104,7 +104,7 @@ const SkillCreate = () => {
                     <input
                       type="text"
                       placeholder="Nama Skill"
-                      className="bg-gray-300 input input-bordered input-sm w-2/3"
+                      className="input input-bordered input-sm w-2/3"
                       onChange={(e) => setNamaSkill(e.target.value)}
                       required
                     />
@@ -117,7 +117,7 @@ const SkillCreate = () => {
                     <input
                       type="number"
                       placeholder="Capability Percent"
-                      className="bg-gray-300 input input-bordered input-sm w-2/3"
+                      className="input input-bordered input-sm w-2/3"
                       onChange={(e) => setCapability(e.target.value)}
                       required
                     />

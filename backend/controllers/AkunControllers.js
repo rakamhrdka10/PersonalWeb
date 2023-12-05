@@ -3,7 +3,6 @@
 import Akun from '../models/AkunModels.js';
 import jwt from 'jsonwebtoken';
 import DataDiri from '../models/DataDiriModels.js';
-// import bcrypt from 'bcrypt';
 import bcrypt from 'bcryptjs';
 
 export const createUser = async (req, res) => {
