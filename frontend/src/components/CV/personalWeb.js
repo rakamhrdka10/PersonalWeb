@@ -28,11 +28,11 @@ const ConvertToWeb = () => {
       {/* <button onClick={toggleView}>Toggle View</button> */}
       <div style={dropdownStyle}>
         <DropdownButton id="dropdown-basic-button" title="Switch View" variant="success" onSelect={handleSelect}>
-          <Dropdown.Item eventKey="first" style={{ width: '100%', textAlign: 'center' }}>Personal Web Daffa</Dropdown.Item>
-          <Dropdown.Item eventKey="second" style={{ width: '100%', textAlign: 'center' }}>Personal Web Aini</Dropdown.Item>
-          <Dropdown.Item eventKey="third" style={{ width: '100%', textAlign: 'center' }}>Personal Web Helsa</Dropdown.Item>
-          <Dropdown.Item eventKey="fourth" style={{ width: '100%', textAlign: 'center' }}>Personal Web Ghessa</Dropdown.Item>
-          <Dropdown.Item eventKey="fifth" style={{ width: '100%', textAlign: 'center' }}>Personal Web Rafi</Dropdown.Item>
+          <Dropdown.Item eventKey="first" style={{ width: '100%', textAlign: 'center' }}>Template 1</Dropdown.Item>
+          <Dropdown.Item eventKey="second" style={{ width: '100%', textAlign: 'center' }}>Template 2</Dropdown.Item>
+          <Dropdown.Item eventKey="third" style={{ width: '100%', textAlign: 'center' }}>Template 3</Dropdown.Item>
+          <Dropdown.Item eventKey="fourth" style={{ width: '100%', textAlign: 'center' }}>Template 4</Dropdown.Item>
+          <Dropdown.Item eventKey="fifth" style={{ width: '100%', textAlign: 'center' }}>Template 5</Dropdown.Item>
         </DropdownButton>
       </div>
       {activeView === 'first' ? (
