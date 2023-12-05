@@ -57,7 +57,7 @@ const PortofolioCreate = () => {
   return (
     <div>
       <Navbar2 toggleSidebar={toggleSidebar}/>
-      <div className={`bg-gray-200 ${isSidebarVisible ? '' : 'h-screen'} flex`}>
+      <div className={`bg-gray-200 ${isSidebarVisible ? 'h-screen' : 'h-screen'} flex`}>
         {isSidebarVisible && <Sidebar />}
         {/* Main Content */}
         <main className={`flex-1 p-4 ${isSidebarVisible ? '' : ''}`}>

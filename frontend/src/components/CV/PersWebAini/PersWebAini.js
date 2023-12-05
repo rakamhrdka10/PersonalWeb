@@ -75,18 +75,7 @@ const PersWebAini = () => {
 
           {/* Portfolio Content Starts */}
           <TabPanel className="portfolio professional">
-            <div
-              className="title-section text-left text-sm-center"
-              data-aos="fade-up"
-              data-aos-duration="1200"
-            >
-              <h1>
-                my <span>portfolio</span>
-              </h1>
-              <span className="title-bg">works</span>
-            </div>
-            {/* End title */}
-            <Portfolio />
+            {/* <Portfolio /> */}
           </TabPanel>
           {/* Portfolio Content Ends */}
         </div>

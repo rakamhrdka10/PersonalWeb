@@ -115,7 +115,7 @@ const DataDiriDetails = () => {
             </div>
             <div className="flex justify-center items-center p-2 mt-5">
               {notFound ? (
-                <div>
+                <div style={{ height: isSidebarVisible ? '70vh' : 'auto' }}>
                   <button
                     className="btn btn-success"
                     onClick={redirectToAddDataDiri}

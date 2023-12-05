@@ -119,7 +119,7 @@ const PortofolioList = () => {
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center" style={{ height: isSidebarVisible ? '70vh' : 'auto' }}>
                   <button onClick={redirectToAddPortofolio} className="btn btn-success mt-4">
                     Tambah Portofolio
                   </button>

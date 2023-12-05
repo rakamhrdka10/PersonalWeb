@@ -2,7 +2,7 @@
 
 import db from "../config/database.js";
 import { DataTypes } from 'sequelize';
-import Porto from './PortoModels.js';
+import Portofolio from './PortoModels.js';
 import Organisasi from './OrganisasiModels.js';
 import Pendidikan from './PendidikanModels.js';
 import Skill from './SkillModels.js';
@@ -97,24 +97,28 @@ const DataDiri = db.define('data_diri', {
     freezeTableName:true
 });
 
-DataDiri.hasMany(Porto, {
+DataDiri.hasMany(Portofolio, {
     foreignKey: 'id_person', 
     onDelete: 'CASCADE',
+    sourceKey: 'id_person',
 });
 
 DataDiri.hasMany(Organisasi, {
     foreignKey: 'id_person', 
     onDelete: 'CASCADE', 
+    sourceKey: 'id_person',
 });
 
 DataDiri.hasMany(Pendidikan, {
     foreignKey: 'id_person', 
     onDelete: 'CASCADE', 
+    sourceKey: 'id_person',
 });
 
 DataDiri.hasMany(Skill, {
     foreignKey: 'id_person', 
     onDelete: 'CASCADE', 
+    sourceKey: 'id_person',
 });
 
 

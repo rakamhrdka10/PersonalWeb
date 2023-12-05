@@ -97,7 +97,7 @@ const Dashboard = () => {
       {/* Navbar */}         
       <Navbar2 toggleSidebar={toggleSidebar}/>
       
-      <div className={`bg-gray-200 ${isSidebarVisible ? 'h-auto' : 'h-auto'} flex`}>
+      <div className={`bg-gray-200 ${isSidebarVisible ? 'h-screen' : 'h-auto'} flex`} style={{ height: isSidebarVisible ? '110vh' : 'auto' }}>
         {isSidebarVisible && <Sidebar />}
         <main className={`flex-1 p-4 ${isSidebarVisible ? "" : ""}`}>
           <button
@@ -180,8 +180,7 @@ const Dashboard = () => {
             </div>
           ) : (
             <p></p>
-          )}
-          
+          )}          
 
         </main>
       </div>

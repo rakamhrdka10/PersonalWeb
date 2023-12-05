@@ -21,8 +21,8 @@ export const createUser = async (req, res) => {
         return res.status(409).json({ msg: 'Username sudah digunakan' });
       }
 
-      const salt = await bcrypt.genSaltSync(); // Use bcryptjs's synchronous version
-      const hashPassword = await bcrypt.hashSync(password, salt); // Use bcryptjs's synchronous version
+      const salt = await bcrypt.genSaltSync(); 
+      const hashPassword = await bcrypt.hashSync(password, salt); 
   
       // Buat admin baru
       const newUser = await Akun.create({
