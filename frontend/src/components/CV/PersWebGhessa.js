@@ -131,7 +131,7 @@ const PersWebGhessa = () => {
           </section>
 
           {/* Organisasi */}
-          <h2 className="text-xl font-bold mt-4 text-[#ccd6f6]" style={{ marginBottom: '4rem' }}>Organisasi</h2>
+          {/* <h2 className="text-xl font-bold mt-4 text-[#ccd6f6]" style={{ marginBottom: '4rem' }}>Organisasi</h2>
           <div className="tab-content" id="organization">
             <div className="info">
               {data.data_diri.organisasis.map((organisasi, index) => {
@@ -149,7 +149,7 @@ const PersWebGhessa = () => {
                 );
               })}
             </div>
-          </div>
+          </div> */}
                             
           {/* Portofolio */}
           <section id="portfolio">
