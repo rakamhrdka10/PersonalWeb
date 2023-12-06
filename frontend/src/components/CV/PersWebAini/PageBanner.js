@@ -73,7 +73,12 @@ const PersWebAini = () => {
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="animate-banner-image">
-                        <img src="/images/animate-banner-img1.jpg" alt="Animate image" style={{ width: 400 }} />
+                      <img
+                        src={`${baseUrl}${data.data_diri.foto}`}
+                        alt=""
+                        className="w-100"
+                        style={{ height: "auto" }}
+                      />
                       </div>
                     </div>
                   </div>

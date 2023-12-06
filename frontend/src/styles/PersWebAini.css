@@ -1,4 +1,17 @@
 /* styles.css */
+#ai-body{
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.6;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  background-color: #111;
+}
 /* [ HEADER ] */
 /*================================================== */
 
@@ -399,23 +412,22 @@
   clip: rect(0em, 1em, 1em, 0.5em);
 }
 
+/* Additional styles for the percentage text */
 .c100 > span {
   position: absolute;
   width: 100%;
   z-index: 1;
   left: 0;
-  top: 0;
-  width: 5em;
-  line-height: 5em;
+  top: 50%;
+  transform: translateY(-50%); /* Center the text vertically */
   font-size: 0.2em;
   color: white;
   display: block;
   text-align: center;
   white-space: nowrap;
-  transition-property: all;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-out;
+  transition: all 0.2s ease-out; /* Added a transition for smoother animation */
 }
+
 .c100:after {
   background-color: #111;
   position: absolute;
@@ -426,9 +438,7 @@
   border-radius: 50%;
   width: 0.84em;
   height: 0.84em;
-  transition-property: all;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in;
+  transition: all 0.2s ease-in; /* Added a transition for smoother animation */
 }
 
 .open-sans-font{
@@ -437,20 +447,19 @@
 
 .pie, .c100 .bar, .c100.p51 .fill, .c100.p52 .fill, .c100.p53 .fill, .c100.p54 .fill, .c100.p55 .fill, .c100.p56 .fill, .c100.p57 .fill, .c100.p58 .fill, .c100.p59 .fill, .c100.p60 .fill, .c100.p61 .fill, .c100.p62 .fill, .c100.p63 .fill, .c100.p64 .fill, .c100.p65 .fill, .c100.p66 .fill, .c100.p67 .fill, .c100.p68 .fill, .c100.p69 .fill, .c100.p70 .fill, .c100.p71 .fill, .c100.p72 .fill, .c100.p73 .fill, .c100.p74 .fill, .c100.p75 .fill, .c100.p76 .fill, .c100.p77 .fill, .c100.p78 .fill, .c100.p79 .fill, .c100.p80 .fill, .c100.p81 .fill, .c100.p82 .fill, .c100.p83 .fill, .c100.p84 .fill, .c100.p85 .fill, .c100.p86 .fill, .c100.p87 .fill, .c100.p88 .fill, .c100.p89 .fill, .c100.p90 .fill, .c100.p91 .fill, .c100.p92 .fill, .c100.p93 .fill, .c100.p94 .fill, .c100.p95 .fill, .c100.p96 .fill, .c100.p97 .fill, .c100.p98 .fill, .c100.p99 .fill, .c100.p100 .fill {
   border: 0.08em solid var(--main-primary-color);
-}
-.pie-fill, .c100.p51 .bar:after, .c100.p51 .fill, .c100.p52 .bar:after, .c100.p52 .fill, .c100.p53 .bar:after, .c100.p53 .fill, .c100.p54 .bar:after, .c100.p54 .fill, .c100.p55 .bar:after, .c100.p55 .fill, .c100.p56 .bar:after, .c100.p56 .fill, .c100.p57 .bar:after, .c100.p57 .fill, .c100.p58 .bar:after, .c100.p58 .fill, .c100.p59 .bar:after, .c100.p59 .fill, .c100.p60 .bar:after, .c100.p60 .fill, .c100.p61 .bar:after, .c100.p61 .fill, .c100.p62 .bar:after, .c100.p62 .fill, .c100.p63 .bar:after, .c100.p63 .fill, .c100.p64 .bar:after, .c100.p64 .fill, .c100.p65 .bar:after, .c100.p65 .fill, .c100.p66 .bar:after, .c100.p66 .fill, .c100.p67 .bar:after, .c100.p67 .fill, .c100.p68 .bar:after, .c100.p68 .fill, .c100.p69 .bar:after, .c100.p69 .fill, .c100.p70 .bar:after, .c100.p70 .fill, .c100.p71 .bar:after, .c100.p71 .fill, .c100.p72 .bar:after, .c100.p72 .fill, .c100.p73 .bar:after, .c100.p73 .fill, .c100.p74 .bar:after, .c100.p74 .fill, .c100.p75 .bar:after, .c100.p75 .fill, .c100.p76 .bar:after, .c100.p76 .fill, .c100.p77 .bar:after, .c100.p77 .fill, .c100.p78 .bar:after, .c100.p78 .fill, .c100.p79 .bar:after, .c100.p79 .fill, .c100.p80 .bar:after, .c100.p80 .fill, .c100.p81 .bar:after, .c100.p81 .fill, .c100.p82 .bar:after, .c100.p82 .fill, .c100.p83 .bar:after, .c100.p83 .fill, .c100.p84 .bar:after, .c100.p84 .fill, .c100.p85 .bar:after, .c100.p85 .fill, .c100.p86 .bar:after, .c100.p86 .fill, .c100.p87 .bar:after, .c100.p87 .fill, .c100.p88 .bar:after, .c100.p88 .fill, .c100.p89 .bar:after, .c100.p89 .fill, .c100.p90 .bar:after, .c100.p90 .fill, .c100.p91 .bar:after, .c100.p91 .fill, .c100.p92 .bar:after, .c100.p92 .fill, .c100.p93 .bar:after, .c100.p93 .fill, .c100.p94 .bar:after, .c100.p94 .fill, .c100.p95 .bar:after, .c100.p95 .fill, .c100.p96 .bar:after, .c100.p96 .fill, .c100.p97 .bar:after, .c100.p97 .fill, .c100.p98 .bar:after, .c100.p98 .fill, .c100.p99 .bar:after, .c100.p99 .fill, .c100.p100 .bar:after, .c100.p100 .fill {
-  transform: rotate(180deg);
-}
-.pie, .c100 .bar, .c100.p51 .fill, .c100.p52 .fill, .c100.p53 .fill, .c100.p54 .fill, .c100.p55 .fill, .c100.p56 .fill, .c100.p57 .fill, .c100.p58 .fill, .c100.p59 .fill, .c100.p60 .fill, .c100.p61 .fill, .c100.p62 .fill, .c100.p63 .fill, .c100.p64 .fill, .c100.p65 .fill, .c100.p66 .fill, .c100.p67 .fill, .c100.p68 .fill, .c100.p69 .fill, .c100.p70 .fill, .c100.p71 .fill, .c100.p72 .fill, .c100.p73 .fill, .c100.p74 .fill, .c100.p75 .fill, .c100.p76 .fill, .c100.p77 .fill, .c100.p78 .fill, .c100.p79 .fill, .c100.p80 .fill, .c100.p81 .fill, .c100.p82 .fill, .c100.p83 .fill, .c100.p84 .fill, .c100.p85 .fill, .c100.p86 .fill, .c100.p87 .fill, .c100.p88 .fill, .c100.p89 .fill, .c100.p90 .fill, .c100.p91 .fill, .c100.p92 .fill, .c100.p93 .fill, .c100.p94 .fill, .c100.p95 .fill, .c100.p96 .fill, .c100.p97 .fill, .c100.p98 .fill, .c100.p99 .fill, .c100.p100 .fill {
-  border: 0.08em solid var(--main-primary-color);
-}
-.pie, .c100 .bar, .c100.p51 .fill, .c100.p52 .fill, .c100.p53 .fill, .c100.p54 .fill, .c100.p55 .fill, .c100.p56 .fill, .c100.p57 .fill, .c100.p58 .fill, .c100.p59 .fill, .c100.p60 .fill, .c100.p61 .fill, .c100.p62 .fill, .c100.p63 .fill, .c100.p64 .fill, .c100.p65 .fill, .c100.p66 .fill, .c100.p67 .fill, .c100.p68 .fill, .c100.p69 .fill, .c100.p70 .fill, .c100.p71 .fill, .c100.p72 .fill, .c100.p73 .fill, .c100.p74 .fill, .c100.p75 .fill, .c100.p76 .fill, .c100.p77 .fill, .c100.p78 .fill, .c100.p79 .fill, .c100.p80 .fill, .c100.p81 .fill, .c100.p82 .fill, .c100.p83 .fill, .c100.p84 .fill, .c100.p85 .fill, .c100.p86 .fill, .c100.p87 .fill, .c100.p88 .fill, .c100.p89 .fill, .c100.p90 .fill, .c100.p91 .fill, .c100.p92 .fill, .c100.p93 .fill, .c100.p94 .fill, .c100.p95 .fill, .c100.p96 .fill, .c100.p97 .fill, .c100.p98 .fill, .c100.p99 .fill, .c100.p100 .fill {
   position: absolute;
   width: 0.84em;
   height: 0.84em;
   clip: rect(0em, 0.5em, 1em, 0em);
   border-radius: 50%;
+  border: 0.08em solid var(--main-primary-color);
+  transform-origin: 50% 100%; /* Set the transform origin to the bottom center */
+  transition: all 0.2s ease-out;
 }
+.pie-fill, .c100.p51 .bar:after, .c100.p51 .fill, .c100.p52 .bar:after, .c100.p52 .fill, .c100.p53 .bar:after, .c100.p53 .fill, .c100.p54 .bar:after, .c100.p54 .fill, .c100.p55 .bar:after, .c100.p55 .fill, .c100.p56 .bar:after, .c100.p56 .fill, .c100.p57 .bar:after, .c100.p57 .fill, .c100.p58 .bar:after, .c100.p58 .fill, .c100.p59 .bar:after, .c100.p59 .fill, .c100.p60 .bar:after, .c100.p60 .fill, .c100.p61 .bar:after, .c100.p61 .fill, .c100.p62 .bar:after, .c100.p62 .fill, .c100.p63 .bar:after, .c100.p63 .fill, .c100.p64 .bar:after, .c100.p64 .fill, .c100.p65 .bar:after, .c100.p65 .fill, .c100.p66 .bar:after, .c100.p66 .fill, .c100.p67 .bar:after, .c100.p67 .fill, .c100.p68 .bar:after, .c100.p68 .fill, .c100.p69 .bar:after, .c100.p69 .fill, .c100.p70 .bar:after, .c100.p70 .fill, .c100.p71 .bar:after, .c100.p71 .fill, .c100.p72 .bar:after, .c100.p72 .fill, .c100.p73 .bar:after, .c100.p73 .fill, .c100.p74 .bar:after, .c100.p74 .fill, .c100.p75 .bar:after, .c100.p75 .fill, .c100.p76 .bar:after, .c100.p76 .fill, .c100.p77 .bar:after, .c100.p77 .fill, .c100.p78 .bar:after, .c100.p78 .fill, .c100.p79 .bar:after, .c100.p79 .fill, .c100.p80 .bar:after, .c100.p80 .fill, .c100.p81 .bar:after, .c100.p81 .fill, .c100.p82 .bar:after, .c100.p82 .fill, .c100.p83 .bar:after, .c100.p83 .fill, .c100.p84 .bar:after, .c100.p84 .fill, .c100.p85 .bar:after, .c100.p85 .fill, .c100.p86 .bar:after, .c100.p86 .fill, .c100.p87 .bar:after, .c100.p87 .fill, .c100.p88 .bar:after, .c100.p88 .fill, .c100.p89 .bar:after, .c100.p89 .fill, .c100.p90 .bar:after, .c100.p90 .fill, .c100.p91 .bar:after, .c100.p91 .fill, .c100.p92 .bar:after, .c100.p92 .fill, .c100.p93 .bar:after, .c100.p93 .fill, .c100.p94 .bar:after, .c100.p94 .fill, .c100.p95 .bar:after, .c100.p95 .fill, .c100.p96 .bar:after, .c100.p96 .fill, .c100.p97 .bar:after, .c100.p97 .fill, .c100.p98 .bar:after, .c100.p98 .fill, .c100.p99 .bar:after, .c100.p99 .fill, .c100.p100 .bar:after, .c100.p100 .fill {
+  transform: rotate(180deg);
+}
+
 .c100 *, .c100 *:before, .c100 *:after {
   box-sizing: content-box;
 }
@@ -554,6 +563,130 @@
   color: #fff;
   top: -20px;
 }
+
+/*** Portfolio ***/
+.container {
+  max-width: 1200px;
+}
+
+.portfolio .main-content {
+  padding-bottom: 85px;
+}
+
+/* Latest Posts */
+
+.portfolio .post-container {
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+
+}
+
+.portfolio .post-content {
+  background-color: #252525;
+  padding: 20px 25px 25px 25px;
+  border-radius: 0 0 5px 5px;
+}
+
+.portfolio .post-content .entry-header h3 {
+  line-height: 26px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+.portfolio .post-content .entry-header h3 a {
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.portfolio .img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.portfolio .post-thumb {
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1300px) {
+  .portfolio .post-thumb {
+    background: #555;
+    min-height: 227px;
+  }
+}
+
+  @media screen and (max-width: 450px) {
+    .portfolio .post-thumb {
+    min-height: 218px;
+    }
+  }
+
+.portfolio .post-thumb {
+  border-radius: 5px 5px 0 0;
+  border-bottom: 5px solid var(--main-primary-color);
+}
+
+.portfolio .post-container:hover img {
+  transform: scale(1.2);
+}
+
+.portfolio .post-thumb img {
+  border-radius: 5px 5px 0 0;
+  transition: 0.3s;
+}
+
+.portfolio .post-content .entry-content p {
+  margin: 15px 0 5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.portfolio .post-content .entry-header h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.portfolio .post-container:hover h3 {
+  color: var(--main-primary-color);
+}
+
+.row > * {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.portfolio .post-content .entry-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.3s;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.open-sans-font {
+  font-family: "Open Sans", sans-serif;
+}
+
+.portfolio .post-content .entry-content p {
+  margin: 15px 0 5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tab-panel_list > div {
+  position: relative;
+}
+
+
+
+
+
+
+
 
 
 
