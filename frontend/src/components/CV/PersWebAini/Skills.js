@@ -19,11 +19,11 @@ const Skills = () => {
   const [data, setData] = useState(null);
   const { username } = useParams();
 
-  const baseUrl = "http://localhost:5000/";
+  const baseUrl = "http://194.233.93.124:4201/";
 
   const getData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/convert-web/${username}`);
+      const response = await axios.get(`http://194.233.93.124:4201/convert-web/${username}`);
       console.log("Data : ", response.data.data);
       setData(response.data.data);
       console.log("Data web 1: ", response.data.data);

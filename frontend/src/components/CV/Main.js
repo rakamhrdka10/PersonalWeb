@@ -9,7 +9,7 @@ import 'animate.css';
 import GenerateWeb from './generateWeb';
 import axios from 'axios';
 
-const baseUrl = "http://localhost:5000/";
+const baseUrl = "http://194.233.93.124:4201/";
 
 const MainBanner = ({ data }) => {
   // Check if data is null or undefined
@@ -61,7 +61,7 @@ const CommonAncestorComponent = () => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:5000/convert-web/`,
+          `http://194.233.93.124:4201/convert-web/`,
           { username: username, id_akun: id_akun }
         );
         console.log("Data : ", response.data);

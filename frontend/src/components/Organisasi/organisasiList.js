@@ -23,7 +23,7 @@ const OrganisasiList = () => {
 
   const getOrganisasi = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/organisasi/${id_person}`);
+      const response = await axios.get(`http://194.233.93.124:4201/organisasi/${id_person}`);
       console.log("Berhasil ambil data organisasi dari id_person =", id_person);
       console.log("Data :", response.data);
       // Tambahkan nomor urut pada data organisasi
@@ -46,7 +46,7 @@ const OrganisasiList = () => {
     const confirmDelete = window.confirm("Apakah Anda yakin ingin menghapus data ini?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/organisasi/${id_organisasi}`);
+        await axios.delete(`http://194.233.93.124:4201/organisasi/${id_organisasi}`);
         window.location.reload();
         console.log("Data berhasil dihapus");
       } catch (error) {

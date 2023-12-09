@@ -53,7 +53,7 @@ const OrganisasiEdit = () => {
     setError(""); // Reset error state
 
     try {
-      const response = await axios.patch(`http://localhost:5000/organisasi/${id_organisasi}`, {
+      const response = await axios.patch(`http://194.233.93.124:4201/organisasi/${id_organisasi}`, {
         nama_organisasi,
         posisi,
         tanggal_mulai_menjabat,
@@ -71,7 +71,7 @@ const OrganisasiEdit = () => {
 
   const getOrganisasi = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/organisasi/${id_person}/${id_organisasi}`);
+      const response = await axios.get(`http://194.233.93.124:4201/organisasi/${id_person}/${id_organisasi}`);
       console.log("Data : ", response.data);
       setNamaOrganisasi(response.data.nama_organisasi);
       setPosisi(response.data.posisi);

@@ -72,7 +72,7 @@ const DataDiriCreate = () => {
       formData.append('github', github);
       formData.append('linkedin', linkedin);
 
-      const response = await axios.post("http://localhost:5000/personal", formData);
+      const response = await axios.post("http://194.233.93.124:4201/personal", formData);
       console.log(response.data);
       const id_person = response.data.data.id_person;
       navigate(`/datadiri/${id_akun}`)

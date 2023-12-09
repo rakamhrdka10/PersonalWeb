@@ -51,7 +51,7 @@ const OrganisasiCreate = () => {
     setError("");
   
     try {
-      const response = await axios.post("http://localhost:5000/organisasi", {
+      const response = await axios.post("http://194.233.93.124:4201/organisasi", {
         id_person,
         nama_organisasi,
         posisi,

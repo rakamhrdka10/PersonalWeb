@@ -51,7 +51,7 @@ const PendidikanEdit = () => {
     setError("");
 
     try {
-      const response = await axios.patch(`http://localhost:5000/pendidikan/${id_pendidikan}`, {
+      const response = await axios.patch(`http://194.233.93.124:4201/pendidikan/${id_pendidikan}`, {
         instansi_pendidikan,
         jurusan,
         tahun_mulai_ajaran,
@@ -69,7 +69,7 @@ const PendidikanEdit = () => {
 
   const getPendidikan = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/pendidikan/${id_person}/${id_pendidikan}`);
+      const response = await axios.get(`http://194.233.93.124:4201/pendidikan/${id_person}/${id_pendidikan}`);
       console.log("Data : ", response.data);
       setInstansiPendidikan(response.data.instansi_pendidikan);
       setJurusan(response.data.jurusan);

@@ -36,7 +36,7 @@ const DataDiriDetails = () => {
     const [notFound, setNotFound] = useState(false);
     const [dataLoaded, setDataLoaded] = useState(false);
 
-  const baseUrl = "http://localhost:5000/";
+  const baseUrl = "http://194.233.93.124:4201/";
 
   if(id !== id_akun ){
     navigate('/notfound404')
@@ -53,7 +53,7 @@ const DataDiriDetails = () => {
   const getDetailPerson = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/personal/${id_akun}`
+        `http://194.233.93.124:4201/personal/${id_akun}`
       );
       console.log("Data : ", response.data);
       setFoto(response.data.foto);

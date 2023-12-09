@@ -38,7 +38,7 @@ const SkillEdit = () => {
     }
 
     try {
-      const response = await axios.patch(`http://localhost:5000/skill/${id_skill}`, {
+      const response = await axios.patch(`http://194.233.93.124:4201/skill/${id_skill}`, {
         nama_skill, capability
       });
 
@@ -53,7 +53,7 @@ const SkillEdit = () => {
 
   const getSkill = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/skill/${id_person}/${id_skill}`);
+      const response = await axios.get(`http://194.233.93.124:4201/skill/${id_person}/${id_skill}`);
       console.log("Data Skill: ", response.data);
       setNamaSkill(response.data.nama_skill);
       setCapability(response.data.capability);

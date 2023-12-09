@@ -28,7 +28,7 @@ const Dashboard = () => {
       const username = localStorage.getItem('username_akun');
       const id_akun = localStorage.getItem('id');
 
-      const response = await axios.get(`http://localhost:5000/convert-web/${username}`);
+      const response = await axios.get(`http://194.233.93.124:4201/convert-web/${username}`);
 
       console.log(response);
       navigate(`/${username}`)
@@ -45,26 +45,26 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/token");
+      const response = await axios.get("http://194.233.93.124:4201/token");
       const decoded = jwt_decode(response.data.accessToken);
       setNama(decoded.nama);
 
       const id_person = decoded.id_akun;
 
       const personalResponse = await axios.get(
-        `http://localhost:5000/personal/${id_person}`
+        `http://194.233.93.124:4201/personal/${id_person}`
       );
       const educationResponse = await axios.get(
-        `http://localhost:5000/pendidikan/${id_person}`
+        `http://194.233.93.124:4201/pendidikan/${id_person}`
       );
       const organizationResponse = await axios.get(
-        `http://localhost:5000/organisasi/${id_person}`
+        `http://194.233.93.124:4201/organisasi/${id_person}`
       );
       const skillResponse = await axios.get(
-        `http://localhost:5000/skill/${id_person}`
+        `http://194.233.93.124:4201/skill/${id_person}`
       );
       const portfolioResponse = await axios.get(
-        `http://localhost:5000/portofolio/${id_person}`
+        `http://194.233.93.124:4201/portofolio/${id_person}`
       );
 
       setCvData({

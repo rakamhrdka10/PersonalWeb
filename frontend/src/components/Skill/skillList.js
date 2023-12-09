@@ -23,7 +23,7 @@ const SkillList = () => {
 
   const getSkill = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/skill/${id_person}`)
+      const response = await axios.get(`http://194.233.93.124:4201/skill/${id_person}`)
       console.log("Berhasil ambil data skill dari id_person = ", id_person)
       console.log("Data : ", response.data)
       // Tambahkan nomor urut pada data skill
@@ -46,7 +46,7 @@ const SkillList = () => {
     const confirmDelete = window.confirm("Apakah Anda yakin ingin menghapus data ini?");
     if(confirmDelete){
       try {
-        await axios.delete(`http://localhost:5000/skill/${id_skill}`)
+        await axios.delete(`http://194.233.93.124:4201/skill/${id_skill}`)
         window.location.reload();
         console.log("Data berhasil dihapus")
       } catch (error) {

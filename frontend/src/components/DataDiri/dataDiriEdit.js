@@ -35,7 +35,7 @@ const DataDiriEdit = () => {
   const [msg, setMsg] = useState("");
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
-  const baseUrl = 'http://localhost:5000/';
+  const baseUrl = 'http://194.233.93.124:4201/';
 
   useEffect(() => {
     getPerson();
@@ -76,7 +76,7 @@ const DataDiriEdit = () => {
 
 
       console.log("JK: ", jenis_kelamin)
-      const response = await axios.patch(`http://localhost:5000/personal/${id_person}`, formData, {
+      const response = await axios.patch(`http://194.233.93.124:4201/personal/${id_person}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -93,7 +93,7 @@ const DataDiriEdit = () => {
 
   const getPerson = async() => {
     try {
-      const response = await axios.get(`http://localhost:5000/personal/${id_person}`)
+      const response = await axios.get(`http://194.233.93.124:4201/personal/${id_person}`)
       console.log("Data: ", response.data)
       setFoto(response.data.foto)
       setNama(response.data.nama)

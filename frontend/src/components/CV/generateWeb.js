@@ -15,13 +15,13 @@ const ConvertToWeb = () => {
   const id_akun = localStorage.getItem('id');
   const username = localStorage.getItem('username_akun');
 
-  const baseUrl = "http://localhost:5000/";
+  const baseUrl = "http://194.233.93.124:4201/";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:5000/convert-web/`,
+          `http://194.233.93.124:4201/convert-web/`,
           { username: username, id_akun: id_akun }
         );
         console.log("Data : ", response.data);

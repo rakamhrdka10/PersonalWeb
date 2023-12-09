@@ -27,7 +27,7 @@ const Sidebar = () => {
       localStorage.removeItem('access_token');
       localStorage.removeItem('username_akun');
       localStorage.removeItem('role_akun');
-      axios.delete('http://localhost:5000/logout');
+      axios.delete('http://194.233.93.124:4201/logout');
       navigate('/');
       console.log("berhasil logout")
     } catch (error) {

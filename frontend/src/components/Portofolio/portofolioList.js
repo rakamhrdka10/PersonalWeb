@@ -19,7 +19,7 @@ const PortofolioList = () => {
   const [portofolios, setPortofolios] = useState([]);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
-  const baseUrl = 'http://localhost:5000/';
+  const baseUrl = 'http://194.233.93.124:4201/';
 
   useEffect(() => {
     getPortofolio();
@@ -27,7 +27,7 @@ const PortofolioList = () => {
   
   const getPortofolio = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/portofolio/${id_person}`)
+      const response = await axios.get(`http://194.233.93.124:4201/portofolio/${id_person}`)
       console.log("Berhasil ambil data portofolio dari id_person = ", id_person)
       console.log("Data : ", response.data)
       // Tambahkan nomor urut pada data portofolio
@@ -50,7 +50,7 @@ const PortofolioList = () => {
     const confirmDelete = window.confirm("Apakah Anda yakin ingin menghapus data ini?");
     if(confirmDelete){
       try {
-        await axios.delete(`http://localhost:5000/portofolio/${id_portofolio}`);
+        await axios.delete(`http://194.233.93.124:4201/portofolio/${id_portofolio}`);
         window.location.reload();
         console.log("Data berhasil dihapus");
       } catch (error) {

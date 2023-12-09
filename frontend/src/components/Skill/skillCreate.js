@@ -37,7 +37,7 @@ const SkillCreate = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/skill", {
+      const response = await axios.post("http://194.233.93.124:4201/skill", {
         id_person,
         nama_skill,
         capability,

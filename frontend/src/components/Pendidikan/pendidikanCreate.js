@@ -69,7 +69,7 @@ const PendidikanCreate = () => {
     setMsg("");
 
     try {
-      const response = await axios.post("http://localhost:5000/pendidikan", {
+      const response = await axios.post("http://194.233.93.124:4201/pendidikan", {
         ...formData,
         id_person,
       });

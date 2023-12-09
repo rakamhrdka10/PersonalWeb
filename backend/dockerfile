@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Port yang digunakan oleh aplikasi backend
-EXPOSE 3001
+EXPOSE 4201
 
 # Perintah untuk menjalankan aplikasi Express
-CMD [ "npm", "start" ]
+CMD [ "npm", "start" ]

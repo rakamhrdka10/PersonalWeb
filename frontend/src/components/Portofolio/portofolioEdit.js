@@ -21,7 +21,7 @@ const PortofolioEdit = () => {
 
   const { id_portofolio, id_person } = useParams();
 
-  const baseUrl = 'http://localhost:5000/';
+  const baseUrl = 'http://194.233.93.124:4201/';
 
   useEffect(() => {
     getPortofolio();
@@ -42,7 +42,7 @@ const PortofolioEdit = () => {
       formData.append('nama_portofolio', nama_portofolio);
       formData.append('deskripsi_portofolio', deskripsi_portofolio);
       
-      const response = await axios.patch(`http://localhost:5000/portofolio/${id_portofolio}`, formData);
+      const response = await axios.patch(`http://194.233.93.124:4201/portofolio/${id_portofolio}`, formData);
 
       navigate(`/portofolio/${id_person}`)
       console.log("Portofolio berhasil diubah")
@@ -54,7 +54,7 @@ const PortofolioEdit = () => {
 
   const getPortofolio = async() => {
     try {
-      const response = await axios.get(`http://localhost:5000/portofolio/${id_person}/${id_portofolio}`)
+      const response = await axios.get(`http://194.233.93.124:4201/portofolio/${id_person}/${id_portofolio}`)
       console.log("Data Porto : ", response.data)
       setNamaPortofolio(response.data.nama_portofolio)
       setDeskripsiPortofolio(response.data.deskripsi_portofolio)

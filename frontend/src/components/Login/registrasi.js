@@ -15,25 +15,29 @@ const Registrasi = () => {
 
   const navigate = useNavigate();
 
-  const registerHandler = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:5000/create-user", {
-        nama,
-        username,
-        password,
-        confPassword
-      });
+ const registerHandler = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post("http://194.233.93.124:4201/create-user", {
+      nama,
+      username,
+      password,
+      confPassword
+    });
 
-      // login(response.data);
-      navigate("/login");
-      console.log("berhasil registrasi");
-      console.log("Response :", response.data);
-    } catch (error) {
-      setMsg(error.response.data.msg);
-      setError(true);
-    }
-  };
+    // Jika respons memiliki properti 'data', gunakan itu; jika tidak, gunakan respons langsung
+    const responseData = response.data ? response.data : response;
+
+    // login(responseData);
+    navigate("/login");
+    console.log("berhasil registrasi");
+    console.log("Response :", responseData);
+  } catch (error) {
+    setMsg(error.response.data.msg);
+    setError(true);
+  }
+};
+
 
   return (
     <div className="bg-gray-200 flex justify-center items-center h-screen">

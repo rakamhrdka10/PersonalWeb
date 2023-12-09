@@ -19,7 +19,7 @@ const PortofolioDetail = () => {
   const [file_portofolio, setFilePortofolio] = useState("");
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
-  const baseUrl = 'http://localhost:5000/';
+  const baseUrl = 'http://194.233.93.124:4201/';
 
     useEffect(() => {
         getDetailPortofolio();
@@ -27,7 +27,7 @@ const PortofolioDetail = () => {
 
     const getDetailPortofolio = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/portofolio/${id_person}/${id_portofolio}`)
+          const response = await axios.get(`http://194.233.93.124:4201/portofolio/${id_person}/${id_portofolio}`)
           console.log("Berhasil ambil data portofolio dari id_person = ", id_person, " dan id_portofolio = ", id_portofolio)
           console.log("Data : ", response.data)
           setNamaPortofolio(response.data.nama_portofolio)

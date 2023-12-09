@@ -39,7 +39,7 @@ const PortofolioCreate = () => {
       }
       formData.append('nama_portofolio', nama_portofolio);
       formData.append('deskripsi_portofolio', deskripsi_portofolio);
-      const response = await axios.post("http://localhost:5000/portofolio", formData)
+      const response = await axios.post("http://194.233.93.124:4201/portofolio", formData)
 
       navigate(`/portofolio/${id_person}`)
       console.log('Berhasil membuat portofolio baru');

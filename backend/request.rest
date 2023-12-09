@@ -1,7 +1,7 @@
 //------------------------------------------------------------//
 
 ### CRUD Admin
-POST http://localhost:5000/create-user
+POST http://194.233.93.124:4201/r
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ### Login
-POST http://localhost:5000/login
+POST http://194.233.93.124:4201/login
 Content-Type: application/json
 
 {
@@ -22,23 +22,23 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/personal/1
+GET http://194.233.93.124:4201/personal/1
 
 ###
-GET http://localhost:5000/personal
+GET http://194.233.93.124:4201/personal
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF9ha3VuIjoyLCJ1c2VybmFtZV9ha3VuIjoiZGFmZmFyYWloYW5kaWthIiwicm9sZV9ha3VuIjoiVXNlciIsImlhdCI6MTY5NjMwOTUzNiwiZXhwIjoxNjk2MzA5NTUxfQ._Ao79uJgTfef25LcxCacEokIHsmgWsccITZ0JZRqJv4
 
 ### refresh token
-GET http://localhost:5000/token
+GET http://194.233.93.124:4201/token
 
 ### logout
-DELETE http://localhost:5000/logout
+DELETE http://194.233.93.124:4201/logout
 
 ###
-# GET http://localhost:5000/admin
+# GET http://194.233.93.124:4201/admin
 
 ###
-# POST http://localhost:5000/admin/register
+# POST http://194.233.93.124:4201/admin/register
 # Content-Type: application/json
 
 # {
@@ -47,7 +47,7 @@ DELETE http://localhost:5000/logout
 # }
 
 ###
-# POST http://localhost:5000/admin/login
+# POST http://194.233.93.124:4201/admin/login
 # Content-Type: application/json
 
 # {
@@ -58,7 +58,7 @@ DELETE http://localhost:5000/logout
 //------------------------------------------------------------//
 
 ### CRUD DATA DIRI (Personal)
-POST http://localhost:5000/personal
+POST http://194.233.93.124:4201/personal
 Content-Type: application/json
 Authorization: Bearer <>
 
@@ -83,15 +83,15 @@ Authorization: Bearer <>
 }
 
 ### Find All
-GET http://localhost:5000/personal
+GET http://194.233.93.124:4201/personal
 Authorization: Bearer 
 
 ### Find One
-GET http://localhost:5000/personal/4
+GET http://194.233.93.124:4201/personal/4
 Authorization: Bearer <>
 
 ### Update
-PATCH http://localhost:5000/personal/1
+PATCH http://194.233.93.124:4201/personal/1
 Content-Type: application/json
 Authorization: Bearer <>
 {
@@ -99,13 +99,13 @@ Authorization: Bearer <>
 }
 
 ### Delete
-DELETE http://localhost:5000/personal/8
+DELETE http://194.233.93.124:4201/personal/8
 Authorization: Bearer <>
 
 //------------------------------------------------------------//
 
 ### CRUD Portofolio
-POST http://localhost:5000/portofolio
+POST http://194.233.93.124:4201/portofolio
 Content-Type: application/json
 
 {
@@ -116,13 +116,13 @@ Content-Type: application/json
 }
 
 ### Menampilkan semua portofolio berdasarkan id_person
-GET http://localhost:5000/portofolio/2
+GET http://194.233.93.124:4201/portofolio/2
 
 ### Menampilkan satu portofolio yang dipilih
-GET http://localhost:5000/portofolio/1/2
+GET http://194.233.93.124:4201/portofolio/1/2
 
 ### edit portofolio
-PATCH http://localhost:5000/portofolio/2
+PATCH http://194.233.93.124:4201/portofolio/2
 Content-Type: application/json
 
 {
@@ -132,12 +132,12 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/portofolio/1
+DELETE http://194.233.93.124:4201/portofolio/1
 
 //------------------------------------------------------------//
 
 ### CRUD Pendidikan
-POST http://localhost:5000/pendidikan
+POST http://194.233.93.124:4201/pendidikan
 Content-Type: application/json
 
 {
@@ -149,13 +149,13 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/pendidikan/1
+GET http://194.233.93.124:4201/pendidikan/1
 
 ###
-GET http://localhost:5000/pendidikan/1/1
+GET http://194.233.93.124:4201/pendidikan/1/1
 
 ###
-PATCH http://localhost:5000/pendidikan/1
+PATCH http://194.233.93.124:4201/pendidikan/1
 Content-Type: application/json
 
 {
@@ -167,7 +167,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/pendidikan/2
+DELETE http://194.233.93.124:4201/pendidikan/2
 
 //------------------------------------------------------------//
 
@@ -175,7 +175,7 @@ DELETE http://localhost:5000/pendidikan/2
 # CRUD Organisasi
 
 ###Create an Organisasi 
-POST http://localhost:5000/organisasi 
+POST http://194.233.93.124:4201/organisasi 
 Content-Type: application/json
 
 {
@@ -187,13 +187,13 @@ Content-Type: application/json
 }
 
 ### Get All Organisasi by id_person 
-GET http://localhost:5000/organisasi/1
+GET http://194.233.93.124:4201/organisasi/1
 
 ### Get a Specific Organisasi by id_person and id_organisasi 
-GET http://localhost:5000/organisasi/1/1
+GET http://194.233.93.124:4201/organisasi/1/1
 
 ### Update an Organisasi 
-PATCH http://localhost:5000/organisasi/1 
+PATCH http://194.233.93.124:4201/organisasi/1 
 Content-Type: application/json
 
 {
@@ -201,12 +201,12 @@ Content-Type: application/json
 }
 
 ### Delete an Organisasi 
-DELETE http://localhost:5000/organisasi/1
+DELETE http://194.233.93.124:4201/organisasi/1
 
 # CRUD Skill
 
 ### Create a Skill 
-POST http://localhost:5000/skill 
+POST http://194.233.93.124:4201/skill 
 Content-Type: application/json
 
 {
@@ -216,13 +216,13 @@ Content-Type: application/json
 }
 
 ### Get All Skill by id_person 
-GET http://localhost:5000/skill/1
+GET http://194.233.93.124:4201/skill/1
 
 ### Get a Specific Skill by id_person and id_skill 
-GET http://localhost:5000/skill/1/1
+GET http://194.233.93.124:4201/skill/1/1
 
 ### Update a Skill 
-PATCH http://localhost:5000/skill/1 
+PATCH http://194.233.93.124:4201/skill/1 
 Content-Type: application/json
 
 {
@@ -230,4 +230,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5000/skill/1
+DELETE http://194.233.93.124:4201/skill/1

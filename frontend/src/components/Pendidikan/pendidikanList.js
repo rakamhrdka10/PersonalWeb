@@ -24,7 +24,7 @@ const PendidikanList = () => {
   const getPendidikan = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/pendidikan/${id_person}`
+        `http://194.233.93.124:4201/pendidikan/${id_person}`
       );
       console.log("Berhasil ambil data pendidikan dari id_person =", id_person);
       console.log("Data:", response.data);
@@ -50,7 +50,7 @@ const PendidikanList = () => {
     );
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/pendidikan/${id_pendidikan}`);
+        await axios.delete(`http://194.233.93.124:4201/pendidikan/${id_pendidikan}`);
         window.location.reload();
         console.log("Data berhasil dihapus");
       } catch (error) {

@@ -24,7 +24,7 @@ const DataDiriList = () => {
   const [data_diri, setDataDiri] = useState([]);
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
-  const baseUrl = 'http://localhost:5000/';
+  const baseUrl = 'http://194.233.93.124:4201/';
 
   useEffect(() => {
     getDataDiri();
@@ -32,7 +32,7 @@ const DataDiriList = () => {
 
   const getDataDiri = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/personal")
+      const response = await axios.get("http://194.233.93.124:4201/personal")
       console.log("Data : ", response.data)
       setDataDiri(response.data)
     } catch (error) {
@@ -56,7 +56,7 @@ const DataDiriList = () => {
     const confirmDelete = window.confirm("Apakah Anda yakin ingin menghapus data ini?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/personal/${id_person}`);
+        await axios.delete(`http://194.233.93.124:4201/personal/${id_person}`);
         window.location.reload();
         console.log("Data berhasil dihapus");
       } catch (error) {

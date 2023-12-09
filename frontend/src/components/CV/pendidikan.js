@@ -11,7 +11,7 @@ import axios from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const baseUrl = "http://localhost:5000/";
+const baseUrl = "http://194.233.93.124:4201/";
 
 const CommonAncestorComponent = () => {
   const [data, setData] = useState(null);
@@ -24,7 +24,7 @@ const CommonAncestorComponent = () => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:5000/convert-web/`,
+          `http://194.233.93.124:4201/convert-web/`,
           { username: username, id_akun: id_akun }
         );
         console.log("Data : ", response.data);
